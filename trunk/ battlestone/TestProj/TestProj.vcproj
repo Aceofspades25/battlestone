@@ -220,6 +220,10 @@
 			</File>
 		</Filter>
 		<File
+			RelativePath=".\NewFile.txt"
+			>
+		</File>
+		<File
 			RelativePath=".\ReadMe.txt"
 			>
 		</File>
