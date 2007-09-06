@@ -1,0 +1,10 @@
+bin\Debug\Poster.exe
+bin\Debug\Poster.pdb
+bin\Debug\Poster.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Poster.Resources.resources
+obj\Debug\Poster.Poster.resources
+obj\Debug\Poster.vbproj.GenerateResource.Cache
+obj\Debug\Poster.exe
+obj\Debug\Poster.xml
+obj\Debug\Poster.pdb

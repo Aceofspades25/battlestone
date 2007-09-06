@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{82651E01-D50D-4BFB-95F0-B6887BC16820}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>HackPets.My.MyApplication</StartupObject>
+    <RootNamespace>HackPets</RootNamespace>
+    <AssemblyName>HackPets</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>icon2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HackPets.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HackPets.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="frmDownload.Designer.vb">
+      <DependentUpon>frmDownload.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDownload.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FightBattle.vb" />
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewVersion.Designer.vb">
+      <DependentUpon>frmNewVersion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewVersion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SellItems.vb" />
+    <Compile Include="Settings.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmDownload.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDownload.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewVersion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNewVersion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Baracod.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ToxicMonster.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WaterMok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ant.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Baracod1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlackCove.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenwhichForest.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mantis.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Random.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scorpion.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\Spider.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_tickGreen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stats.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monster.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlackCove2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenwhichForest2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pauseDisabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playDisabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stopDisabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon2.ico" />
+    <None Include="Resources\RightWhite.gif" />
+    <None Include="Resources\LeftWhite.gif" />
+    <None Include="Resources\close.gif" />
+    <None Include="Resources\reset2.gif" />
+    <None Include="Resources\unequipAll.gif" />
+    <None Include="Resources\unequip.gif" />
+    <None Include="Resources\equip.gif" />
+    <None Include="Resources\helmet.gif" />
+    <None Include="Resources\coins.gif" />
+    <None Include="Resources\coin.gif" />
+    <None Include="Resources\battle.gif" />
+    <None Include="Resources\SemiT.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,13 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\HackPets.vbproj.GenerateResource.Cache
+bin\Debug\HackPets.exe.config
+obj\Debug\HackPets.Resources.resources
+obj\Debug\HackPets.frmMain.resources
+bin\Debug\HackPets.exe
+bin\Debug\HackPets.pdb
+bin\Debug\HackPets.xml
+obj\Debug\HackPets.exe
+obj\Debug\HackPets.xml
+obj\Debug\HackPets.pdb
+obj\Debug\HackPets.frmDownload.resources
+obj\Debug\HackPets.frmNewVersion.resources
