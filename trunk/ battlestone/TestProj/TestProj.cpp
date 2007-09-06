@@ -8,7 +8,6 @@
 int _tmain(int argc, _TCHAR* argv[])
 {
 	cprintf("Hello world\n");
-	//char* str = "";
 	getch();
 	return 0;
 }
