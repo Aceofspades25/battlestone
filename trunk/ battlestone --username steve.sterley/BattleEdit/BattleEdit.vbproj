@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1E03C679-7B8B-401D-8EDD-D156076E96D2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>BattleEdit.My.MyApplication</StartupObject>
+    <RootNamespace>BattleEdit</RootNamespace>
+    <AssemblyName>BattleEdit</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>dragon.ico</ApplicationIcon>
+    <ManifestCertificateThumbprint>E22DCFD626EBF44EDA0122DD05A924E08670A1DD</ManifestCertificateThumbprint>
+    <ManifestKeyFile>BattleEdit_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <PublishUrl>C:\Users\Steve\Documents\Visual Studio 2005\Projects\BattleEdit\BattleEdit\Release\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>false</CreateWebPageOnPublish>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>BattleEdit.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>BattleEdit.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NewTile.Designer.vb">
+      <DependentUpon>NewTile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewTile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parent.Designer.vb">
+      <DependentUpon>Parent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Parent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ctlFloor.Designer.vb">
+      <DependentUpon>ctlFloor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctlFloor.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlGround.Designer.vb">
+      <DependentUpon>ctlGround.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctlGround.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlObject.Designer.vb">
+      <DependentUpon>ctlObject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctlObject.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlWall.Designer.vb">
+      <DependentUpon>ctlWall.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctlWall.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelectObstacles.Designer.vb">
+      <DependentUpon>SelectObstacles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SelectObstacles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SingleGroup.Designer.vb">
+      <DependentUpon>SingleGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SingleGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TileEditor.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TileManager.Designer.vb">
+      <DependentUpon>TileManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TileManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomPanel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SelectSprite.Designer.vb">
+      <DependentUpon>SelectSprite.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SelectSprite.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NewTile.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewTile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parent.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Parent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlFloor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ctlFloor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlGround.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ctlGround.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlObject.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ctlObject.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlWall.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ctlWall.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectObstacles.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SelectObstacles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SingleGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SingleGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TileManager.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TileManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectSprite.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SelectSprite.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dragon.ico" />
+    <None Include="Images\renameGroup.gif" />
+    <None Include="app.config" />
+    <None Include="Images\info.gif" />
+    <None Include="Images\help.gif" />
+    <None Include="Images\_cross.gif" />
+    <None Include="Images\BattleStone.png" />
+    <None Include="Images\helmet.gif" />
+    <None Include="Images\coins.gif" />
+    <None Include="Images\battle.gif" />
+    <None Include="Images\group.gif" />
+    <None Include="Images\wand.gif" />
+    <None Include="Images\map.gif" />
+    <None Include="Images\AllGroups.gif" />
+    <None Include="Images\dragon.gif" />
+    <None Include="Images\ShiftRight.gif" />
+    <None Include="Images\ShiftLeft.gif" />
+    <None Include="Images\AreaSelect.gif" />
+    <None Include="Images\ObstacleSelect.gif" />
+    <None Include="Images\car.gif" />
+    <None Include="Images\save.gif" />
+    <None Include="Images\newTile.gif" />
+    <None Include="Images\newGroup.gif" />
+    <None Include="Images\deleteTile.gif" />
+    <None Include="Images\deleteGroup.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

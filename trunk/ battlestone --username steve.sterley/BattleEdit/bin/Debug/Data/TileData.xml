@@ -1,0 +1,178 @@
+<?xml version="1.0" standalone="yes"?>
+<Tiles>
+  <TilesHeader>
+    <DateGenerated>19 September 2007</DateGenerated>
+    <TimeGenerated>16:22:11</TimeGenerated>
+  </TilesHeader>
+  <Group>
+    <GroupName>Not specified</GroupName>
+  </Group>
+  <Group>
+    <GroupName>Village</GroupName>
+    <Object>
+      <ObjectID>1</ObjectID>
+      <TileName>Chess Pawn</TileName>
+      <ImageFile>Sprites\Grid2.png</ImageFile>
+      <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>192</X>
+        <Y>0</Y>
+      </TopLeft>
+      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>64</Width>
+        <Height>64</Height>
+      </Dimension>
+      <Obstacle>
+        <Position xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+      </Obstacle>
+      <Frames>
+        <FrameNum>1</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>192</X>
+          <Y>0</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>64</Width>
+          <Height>64</Height>
+        </Dimension>
+      </Frames>
+    </Object>
+    <Object>
+      <ObjectID>0</ObjectID>
+      <TileName>Bouncing red ball</TileName>
+      <ImageFile>Sprites\Grid.png</ImageFile>
+      <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>64</X>
+        <Y>64</Y>
+      </TopLeft>
+      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>64</Width>
+        <Height>64</Height>
+      </Dimension>
+      <Obstacle>
+        <Position xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>0</X>
+          <Y>0</Y>
+        </Position>
+      </Obstacle>
+      <Frames>
+        <FrameNum>1</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>64</X>
+          <Y>64</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>64</Width>
+          <Height>64</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>2</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>128</X>
+          <Y>64</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>64</Width>
+          <Height>64</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>3</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>192</X>
+          <Y>64</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>64</Width>
+          <Height>64</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>4</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>128</X>
+          <Y>64</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>64</Width>
+          <Height>64</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>5</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>64</X>
+          <Y>64</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>64</Width>
+          <Height>64</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>6</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>384</X>
+          <Y>64</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>64</Width>
+          <Height>64</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>7</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>448</X>
+          <Y>64</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>64</Width>
+          <Height>64</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>8</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>384</X>
+          <Y>64</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>64</Width>
+          <Height>64</Height>
+        </Dimension>
+      </Frames>
+    </Object>
+  </Group>
+  <Group>
+    <GroupName>Castle1</GroupName>
+  </Group>
+  <Group>
+    <GroupName>Cave 1</GroupName>
+  </Group>
+  <Group>
+    <GroupName>Castle 2</GroupName>
+  </Group>
+  <Group>
+    <GroupName>Jungle 1</GroupName>
+  </Group>
+  <Group>
+    <GroupName>Desert 1</GroupName>
+    <Object>
+      <ObjectID>2</ObjectID>
+      <TileName>New tile</TileName>
+      <ImageFile />
+      <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>0</X>
+        <Y>0</Y>
+      </TopLeft>
+      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>0</Width>
+        <Height>0</Height>
+      </Dimension>
+    </Object>
+  </Group>
+</Tiles>

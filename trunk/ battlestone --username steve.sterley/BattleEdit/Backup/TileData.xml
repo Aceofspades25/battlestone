@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Tiles>	
+	<TilesHeader>
+		<DateGenerated>19 September 2007</DateGenerated>
+		<TimeGenerated>16:22:11</TimeGenerated>		
+	</TilesHeader>
+	<Group>
+		<GroupName>Forest1</GroupName>
+			<Object>
+				<ObjectID>0</ObjectID>
+				<TileName>Barrel 1</TileName>
+				<ImageFile>C:\Users\Steve\Documents\Visual Studio 2005\Projects\BattleEdit\BattleEdit\Grid.png</ImageFile>
+				<TopLeft>0,0</TopLeft>
+				<Dimension>64,32</Dimension>
+				<Obstacle>
+					<Position>0,0</Position>
+				</Obstacle>
+				<Obstacle>
+					<Position>0,1</Position>
+				</Obstacle>
+				<Obstacle>
+					<Position>1,1</Position>
+				</Obstacle>
+				<Frames>
+					<FrameNum>1</FrameNum>
+					<TopLeft>0,0</TopLeft>
+					<Dimension>64,32</Dimension>
+				</Frames>
+				<Frames>
+					<FrameNum>2</FrameNum>
+					<TopLeft>0,0</TopLeft>
+					<Dimension>64,32</Dimension>
+				</Frames>
+			</Object>
+			<Object>
+				<ObjectID>1</ObjectID>
+				<TileName>House 1</TileName>
+				<ImageFile>C:\Users\Steve\Documents\Visual Studio 2005\Projects\BattleEdit\BattleEdit\Grid.png</ImageFile>
+				<TopLeft>0,0</TopLeft>
+				<Dimension>64,32</Dimension>
+				<Obstacle>
+					<Position>0,0</Position>
+				</Obstacle>
+				<Obstacle>
+					<Position>0,1</Position>
+				</Obstacle>
+				<Obstacle>
+					<Position>1,1</Position>
+				</Obstacle>
+				<Frames>
+					<FrameNum>1</FrameNum>
+					<TopLeft>0,0</TopLeft>
+					<Dimension>64,32</Dimension>
+				</Frames>
+				<Frames>
+					<FrameNum>2</FrameNum>
+					<TopLeft>0,0</TopLeft>
+					<Dimension>64,32</Dimension>
+				</Frames>
+			</Object>
+			<Wall>
+				<WallID>0</WallID>
+				<TileName>Wall 1</TileName>
+			</Wall>
+			<Wall>
+				<WallID>1</WallID>
+				<TileName>Wall 2</TileName>
+			</Wall>
+			<Floor>
+				<FloorID>0</FloorID>
+				<TileName>Floor 1</TileName>
+			</Floor>
+			<Floor>
+				<FloorID>1</FloorID>
+				<TileName>Floor 2</TileName>
+			</Floor>
+	</Group>
+	<Group>
+		<GroupName>Castle1</GroupName>
+		<Object>
+			<ObjectID>2</ObjectID>
+			<TileName>FirePlace</TileName>
+			<ImageFile>C:\Users\Steve\Documents\Visual Studio 2005\Projects\BattleEdit\BattleEdit\Grid.png</ImageFile>
+			<TopLeft>0,0</TopLeft>
+			<Dimension>64,32</Dimension>
+			<Obstacle>
+				<Position>0,0</Position>
+			</Obstacle>
+			<Obstacle>
+				<Position>0,1</Position>
+			</Obstacle>
+			<Obstacle>
+				<Position>1,1</Position>
+			</Obstacle>
+			<Frames>
+				<FrameNum>1</FrameNum>
+				<TopLeft>0,0</TopLeft>
+				<Dimension>64,32</Dimension>
+			</Frames>
+			<Frames>
+				<FrameNum>2</FrameNum>
+				<TopLeft>0,0</TopLeft>
+				<Dimension>64,32</Dimension>
+			</Frames>
+		</Object>
+	</Group>
+	<Group>
+		<GroupName>Cave 1</GroupName>
+	</Group>
+	<Group>
+		<GroupName>Castle 2</GroupName>
+	</Group>
+	<Group>
+		<GroupName>Jungle 1</GroupName>
+	</Group>
+	<Group>
+		<GroupName>Desert 1</GroupName>
+	</Group>
+	<Group>
+		<GroupName>Not specified</GroupName>
+	</Group>
+</Tiles>
