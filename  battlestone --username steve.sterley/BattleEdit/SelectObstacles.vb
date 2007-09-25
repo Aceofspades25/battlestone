@@ -1,16 +1,16 @@
 Public Class SelectObstacles
-    Dim strImage As String = ""  ' The filename of the image
+    Dim strImage As String = "c:\Grid.png"  ' The filename of the image
     Dim ptStart As New Point(0, 0)
-    Dim szDimensions As New Size(64, 32)
+    Dim szDimensions As New Size(512, 512)
     Dim currentImage As Bitmap
     Dim bOffSet As Boolean = False
     Dim alObstacles As New ArrayList
     Dim mouseGridPos As New Point(0, 0)
     Dim gridOffset As Integer = 0
 
-    Dim PI As Double = 4 * Math.Atan(1.0)
-    Dim Tan_PI_6 As Double = Math.Tan(PI / 6.0)
-    Dim Sqrt_5_8 As Double = 8.0 * Math.Sqrt(5.0)
+    Dim PI As Double = CType(4.0, Double) * Math.Atan(1.0)
+    Dim Tan_PI_6 As Double = Math.Tan(PI / CType(6.0, Double))
+    Dim Sqrt_5_8 As Double = CType(8.0, Double) * Math.Sqrt(5.0)
 
     Public Property ImageFile() As String
         Get
@@ -175,32 +175,68 @@ Public Class SelectObstacles
         End If
     End Sub
 
+    Private Function To_Radians(ByVal degAngle As Double) As Double
+        Return degAngle / CType(180, Double) * PI
+    End Function
+
     Private Sub pnlImage_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pnlImage.MouseMove
         ' Calculates the Mouse' co-ordinates on the orthagonal grid        
         If e.Location.X < szDimensions.Width + 32 + gridOffset + Me.pnlImage.AutoScrollPosition.X And e.Location.Y < szDimensions.Height + 32 + Me.pnlImage.AutoScrollPosition.Y Then
             ' TODO: This algorithm goes wrong, and needs re-thinking.
             ' This is the same algorithm used in the engine.
             ' The new Point with respect to the anchor cell
+
             Dim newLoc As New PointF(e.Location.X - szDimensions.Width - Me.pnlImage.AutoScrollPosition.X + 32 - gridOffset, e.Location.Y - szDimensions.Height - Me.pnlImage.AutoScrollPosition.Y)
-            Dim vertHeightAboveOrthY As Single = (-newLoc.X * Tan_PI_6) + newLoc.Y
-            Dim vertHeightAboveOrthX As Single = newLoc.Y + (newLoc.X * Tan_PI_6)
-            Dim orthX As Double = -vertHeightAboveOrthY + 2.0 * Sqrt_5_8
-            Dim orthY As Double = vertHeightAboveOrthX
-            orthX /= 2.0 * Sqrt_5_8
-            orthY /= 2.0 * Sqrt_5_8
-            mouseGridPos.X = CType(orthX, Integer) - 1
-            mouseGridPos.Y = CType(orthY, Integer)
+            'Dim vertHeightAboveOrthY As Single = (-newLoc.X * Tan_PI_6) + newLoc.Y
+            'Dim vertHeightAboveOrthX As Single = newLoc.Y + (newLoc.X * Tan_PI_6)
+            'Dim orthX As Double = -vertHeightAboveOrthY + 2.0 * Sqrt_5_8
+            'Dim orthY As Double = vertHeightAboveOrthX
+            'orthX /= 2.0 * Sqrt_5_8
+            'orthY /= 2.0 * Sqrt_5_8
+            'mouseGridPos.X = CType(orthX, Integer)
+            'mouseGridPos.Y = CType(orthY, Integer)
+            newLoc.Y *= CType(1.11, Double)
+            newLoc.X *= CType(0.984, Double)
+            Dim angle As Double = (Math.Atan(newLoc.Y / newLoc.X)) / PI * CType(180, Double)
+            Dim alpha As Double
+            Dim beta As Double
+            'If angle < 0 Then
+            beta = angle + CType(30, Double)
+            alpha = CType(150, Double) + angle
+            'Else
+            '    alpha = angle - 30
+            '    beta = 150 - angle
+            'End If
+            Dim l As Double = Math.Sqrt(newLoc.X * newLoc.X + newLoc.Y * newLoc.Y)
+            Dim isomX As Double = l * Math.Sin(To_Radians(alpha)) / Math.Sin(To_Radians(60))
+            Dim isomY As Double = l * Math.Sin(To_Radians(beta)) / Math.Sin(To_Radians(60))
+            isomX /= (CType(2.0, Double) * Sqrt_5_8)
+            isomY /= (CType(2.0, Double) * Sqrt_5_8)
+            If newLoc.X < 0 Then
+                isomY *= -1
+                isomX *= -1
+            End If
+            'If newLoc.Y > 0 Then
+            '    isomX *= -1
+            'End If
+            Try
+                mouseGridPos.X = CType(isomX, Integer)
+                mouseGridPos.Y = CType(isomY, Integer)
+            Catch ex As System.OverflowException
+                mouseGridPos.X = 0
+                mouseGridPos.Y = 0
+            End Try
 
             Dim strX = "Anchor"
             Dim strY = "Anchor"
-            Select Case CType(orthX, Integer) - 1
+            Select Case mouseGridPos.X
                 Case Is < 0
                     strX &= " - " & Math.Abs(mouseGridPos.X)
                 Case Is > 0
                     strX &= " + " & mouseGridPos.X
             End Select
 
-            Select Case CType(orthY, Integer)
+            Select Case mouseGridPos.Y
                 Case Is < 0
                     strY &= " - " & Math.Abs(mouseGridPos.Y)
                 Case Is > 0
