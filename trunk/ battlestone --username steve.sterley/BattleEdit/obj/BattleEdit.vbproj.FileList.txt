@@ -45,3 +45,4 @@ obj\Release\BattleEdit.pdb
 bin\Debug\BattleEdit.exe.config
 obj\Debug\BattleEdit.SingleGroup.resources
 obj\Debug\BattleEdit.NewTile.resources
+obj\Debug\BattleEdit.PreviewSprite.resources

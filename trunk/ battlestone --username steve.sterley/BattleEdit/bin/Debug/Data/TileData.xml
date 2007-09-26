@@ -6,6 +6,129 @@
   </TilesHeader>
   <Group>
     <GroupName>Not specified</GroupName>
+    <Object>
+      <ObjectID>6</ObjectID>
+      <TileName>New tile</TileName>
+      <ImageFile>Sprites\LargeGrid.png</ImageFile>
+      <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>0</X>
+        <Y>0</Y>
+      </TopLeft>
+      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>160</Width>
+        <Height>128</Height>
+      </Dimension>
+      <Frames>
+        <FrameNum>1</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>0</X>
+          <Y>0</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>2</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>160</X>
+          <Y>0</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>3</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>320</X>
+          <Y>0</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>4</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>480</X>
+          <Y>0</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>5</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>640</X>
+          <Y>0</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>6</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>800</X>
+          <Y>0</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>7</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>0</X>
+          <Y>128</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>8</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>160</X>
+          <Y>128</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>9</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>320</X>
+          <Y>128</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+      <Frames>
+        <FrameNum>10</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>480</X>
+          <Y>128</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>160</Width>
+          <Height>128</Height>
+        </Dimension>
+      </Frames>
+    </Object>
   </Group>
   <Group>
     <GroupName>Village</GroupName>
@@ -269,6 +392,54 @@
         <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           <Width>384</Width>
           <Height>480</Height>
+        </Dimension>
+      </Frames>
+    </Object>
+    <Object>
+      <ObjectID>5</ObjectID>
+      <TileName>Tree4</TileName>
+      <ImageFile>Sprites\TreesGrid.png</ImageFile>
+      <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>0</X>
+        <Y>480</Y>
+      </TopLeft>
+      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>384</Width>
+        <Height>512</Height>
+      </Dimension>
+      <Obstacle>
+        <Position xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>-3</X>
+          <Y>-3</Y>
+        </Position>
+      </Obstacle>
+      <Obstacle>
+        <Position xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>-2</X>
+          <Y>-3</Y>
+        </Position>
+      </Obstacle>
+      <Obstacle>
+        <Position xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>-2</X>
+          <Y>-4</Y>
+        </Position>
+      </Obstacle>
+      <Obstacle>
+        <Position xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>-3</X>
+          <Y>-4</Y>
+        </Position>
+      </Obstacle>
+      <Frames>
+        <FrameNum>1</FrameNum>
+        <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>0</X>
+          <Y>480</Y>
+        </TopLeft>
+        <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Width>384</Width>
+          <Height>512</Height>
         </Dimension>
       </Frames>
     </Object>

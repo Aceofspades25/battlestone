@@ -104,6 +104,12 @@
     <Compile Include="ctlWall.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="PreviewSprite.Designer.vb">
+      <DependentUpon>PreviewSprite.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PreviewSprite.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SelectObstacles.Designer.vb">
       <DependentUpon>SelectObstacles.vb</DependentUpon>
     </Compile>
@@ -182,6 +188,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>ctlWall.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PreviewSprite.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PreviewSprite.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SelectObstacles.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SelectObstacles.vb</DependentUpon>
@@ -222,6 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dragon.ico" />
+    <None Include="Images\Preview.png" />
     <None Include="Images\renameGroup.gif" />
     <None Include="app.config" />
     <None Include="Images\info.gif" />

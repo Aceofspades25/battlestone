@@ -54,9 +54,12 @@ Partial Class ctlObject
         Me.btnDeleteFrame = New System.Windows.Forms.Button
         Me.pnlPreview = New BattleEdit.CustomPanel
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.pbPreview = New System.Windows.Forms.PictureBox
         CType(Me.dtgObstacles, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.dtgAnimated, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlPreview.SuspendLayout()
+        CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnSelectSprite
@@ -382,6 +385,7 @@ Partial Class ctlObject
         Me.pnlPreview.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlPreview.AutoScroll = True
         Me.pnlPreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pnlPreview.Controls.Add(Me.pbPreview)
         Me.pnlPreview.Location = New System.Drawing.Point(248, 8)
         Me.pnlPreview.Name = "pnlPreview"
         Me.pnlPreview.Size = New System.Drawing.Size(204, 160)
@@ -389,7 +393,20 @@ Partial Class ctlObject
         '
         'Timer1
         '
-        Me.Timer1.Interval = 25
+        Me.Timer1.Interval = 50
+        '
+        'pbPreview
+        '
+        Me.pbPreview.BackColor = System.Drawing.Color.Transparent
+        Me.pbPreview.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbPreview.Image = Global.BattleEdit.My.Resources.Resources.Preview
+        Me.pbPreview.Location = New System.Drawing.Point(5, 5)
+        Me.pbPreview.Name = "pbPreview"
+        Me.pbPreview.Size = New System.Drawing.Size(30, 30)
+        Me.pbPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.pbPreview.TabIndex = 0
+        Me.pbPreview.TabStop = False
+        Me.pbPreview.Visible = False
         '
         'ctlObject
         '
@@ -421,6 +438,8 @@ Partial Class ctlObject
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.dtgAnimated, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlPreview.ResumeLayout(False)
+        CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -455,5 +474,6 @@ Partial Class ctlObject
     Friend WithEvents btnAddFrame As System.Windows.Forms.Button
     Friend WithEvents btnDeleteFrame As System.Windows.Forms.Button
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents pbPreview As System.Windows.Forms.PictureBox
 
 End Class

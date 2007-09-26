@@ -28,14 +28,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BattleEdit.exe" size="356352">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BattleEdit.exe" size="364544">
       <assemblyIdentity name="BattleEdit" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ltYHanFEkFbbo+12U7+7VytDAJU=</dsig:DigestValue>
+        <dsig:DigestValue>2Q9O2G/3R176CV8iIm2S1RVQI/E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

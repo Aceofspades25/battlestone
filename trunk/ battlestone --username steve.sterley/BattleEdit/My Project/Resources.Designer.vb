@@ -186,6 +186,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property Preview() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Preview", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property renameGroup() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("renameGroup", resourceCulture)
