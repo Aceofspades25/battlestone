@@ -8,6 +8,7 @@ Public Class ctlObject
     Dim currentImage As Bitmap
     Dim imageOffSet As Boolean = False  ' Does the image have an offset with respect to the underlying grid?
     Dim obstacles As New ArrayList
+    Dim bPreview As Boolean = False
 
     Dim dsTiles As DataSet  ' The Global DataSet which stores all tile data
     Dim objID As String ' The ID for this particular Tile
@@ -66,11 +67,22 @@ Public Class ctlObject
 
     Private Sub ctlObject_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         dtgAnimated.DataSource = dtAnimFrames
+        pnlPreview.AutoScrollMinSize = New Size(tileSize.Width, tileSize.Height)
+        If tileSize.Width > pnlPreview.Width Or tileSize.Height > pnlPreview.Height Then
+            bPreview = True
+        Else
+            bPreview = False
+        End If
         Draw_Frame()
     End Sub
 
     Private Sub Show_Preview(ByVal fName As String, ByVal pos As Point, ByVal size As Size)
         pnlPreview.AutoScrollMinSize = New Size(tileSize.Width, tileSize.Height)
+        If tileSize.Width > pnlPreview.Width Or tileSize.Height > pnlPreview.Height Then
+            bPreview = True
+        Else
+            bPreview = False
+        End If
         Draw_Frame()
         Me.pnlPreview.Invalidate()
     End Sub
@@ -333,6 +345,38 @@ Public Class ctlObject
             Next
             Populate_Obstacles()
         End If
+    End Sub
+
+    Private Sub pbPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pbPreview.Click
+        Save()
+        Dim frmPreview As New PreviewSprite()
+        frmPreview.TileDataSet = dsTiles
+        Dim objRow As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & objID)(0)
+        'Me.ddlGroup.SelectedValue = objRow.Item("Group_Id")
+        frmPreview.TileID = objID
+        frmPreview.MdiParent = Me.ParentForm.MdiParent
+        frmPreview.Show()
+    End Sub
+
+    Private Sub pnlPreview_Scroll(ByVal sender As Object, ByVal e As System.Windows.Forms.ScrollEventArgs) Handles pnlPreview.Scroll
+        pbPreview.Location = New Point(-pnlPreview.AutoScrollPosition.X / pnlPreview.AutoScrollMinSize.Height + 5, -pnlPreview.AutoScrollPosition.Y / pnlPreview.AutoScrollMinSize.Width + 5)
+    End Sub
+
+    Private Sub pnlPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseEnter
+        If bPreview Then
+            pbPreview.Visible = True
+            pbPreview.Image = My.Resources.Preview
+        End If
+    End Sub
+
+    Private Sub pnlPreview_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseLeave
+        If pbPreview.Visible Then
+            pbPreview.Image = Nothing
+        End If
+    End Sub
+
+    Private Sub pbPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pbPreview.MouseEnter
+        pbPreview.Image = My.Resources.Preview
     End Sub
 
 End Class
