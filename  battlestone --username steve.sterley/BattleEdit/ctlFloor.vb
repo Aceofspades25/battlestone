@@ -145,7 +145,7 @@ Public Class ctlFloor
             ' They must first select the main tile before selecting the depth pieces
             Dim frmSS As New SelectSprite()
             frmSS.ImageFile = tileFile
-            frmSS.SizeConstraint = New Size(tileSize.Width / 32 / 2, Math.Ceiling(tileSize.Height / 32 / 2))
+            frmSS.SizeConstraint = New Size(tileSize.Width / 2, Math.Ceiling(tileSize.Height / 32 / 2) * 32)
             If frmSS.ShowDialog(Me) = DialogResult.OK Then
                 depthPositionL = frmSS.TileStart
                 depthSizeL = frmSS.TileSize
@@ -162,7 +162,7 @@ Public Class ctlFloor
             ' They must first select the main tile before selecting the depth pieces
             Dim frmSS As New SelectSprite()
             frmSS.ImageFile = tileFile
-            frmSS.SizeConstraint = New Size(tileSize.Width / 2, tileSize.Height / 2)
+            frmSS.SizeConstraint = New Size(tileSize.Width / 2, Math.Ceiling(tileSize.Height / 32 / 2) * 32)
             If frmSS.ShowDialog(Me) = DialogResult.OK Then
                 depthPositionR = frmSS.TileStart
                 depthSizeR = frmSS.TileSize

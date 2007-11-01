@@ -142,8 +142,8 @@ Public Class SelectSprite
     Private Sub btnOkay_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnOkay.Click
         ' Check that the selected area is  equal to the constraint if there is one
         If Not _sizeConstraint = Nothing Then
-            If actualSize.Width <> _sizeConstraint.Width * 32 Or actualSize.Height <> _sizeConstraint.Height * 32 Then
-                MessageBox.Show("The selected image must be the following size: (" & _sizeConstraint.Width * 32 & "x" & _sizeConstraint.Height * 32 & ")", "Invalid selection size", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            If actualSize.Width <> _sizeConstraint.Width Or actualSize.Height <> _sizeConstraint.Height Then
+                MessageBox.Show("The selection you have made is invalid." & vbCrLf & "The selected image must be the following size: (" & _sizeConstraint.Width & "x" & _sizeConstraint.Height & ")", "Invalid selection size", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Me.DialogResult = Windows.Forms.DialogResult.None
             End If
         End If
