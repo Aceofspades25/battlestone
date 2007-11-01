@@ -36,6 +36,7 @@ Public Class TileManager
                 ' Add Each object for this group
                 Dim newFloor As TreeNode = newFloorRoot.Nodes.Add(floor.Item("TileName"))
                 newFloor.StateImageKey = "floor.gif"
+                newFloor.Name = floor.Item("Floor_Id")
             Next
         Next
     End Sub
@@ -69,6 +70,29 @@ Public Class TileManager
                 End If
                 If objRow.Item("TileName") <> tNode.Text Then
                     tNode.Text = objRow.Item("TileName")
+                End If
+            Next t
+            For t As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes(0).Nodes.Count - 1
+                ' Cycle through each tile in the objects category
+                ' Look up this tile in the dataset - if it belongs to a different group, re-assign it
+                Dim tNode As TreeNode
+                Try
+                    tNode = TreeView1.Nodes(0).Nodes(g).Nodes(0).Nodes(t)
+                Catch ex As ArgumentOutOfRangeException
+                    ' If this exception has been caught, a node has been moved, and so the traversal of this branch has gone too far
+                    Exit For
+                End Try
+                Dim flrRow As DataRow = dsTiles.Tables("Floor").Select("Floor_Id = " & tNode.Name)(0)
+                Dim group As String = flrRow.Item("Group_Id")
+                If group <> gID Then
+                    ' If this node is now in the wrong group, then re-assign it
+                    tNode.Remove()
+                    TreeView1.Nodes(0).Nodes(group).Nodes(2).Nodes.Add(tNode)
+                    ' Subtract one from the tile counter since we have moved a node out of this group
+                    t -= 1
+                End If
+                If flrRow.Item("TileName") <> tNode.Text Then
+                    tNode.Text = flrRow.Item("TileName")
                 End If
             Next t
             'Next c
@@ -105,13 +129,9 @@ Public Class TileManager
     Private Sub TreeView1_AfterSelect(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterSelect
         If Not e.Node.Parent Is Nothing Then
             Select Case e.Node.Parent.Text
-                Case "Ground"
-                    DestroyCurrentPanel()
-                    currentPanel = New ctlGround()
-                    InsertPanel()
                 Case "Floors"
                     DestroyCurrentPanel()
-                    currentPanel = New ctlFloor()
+                    currentPanel = New ctlFloor(dsTiles, e.Node.Name)
                     InsertPanel()
                 Case "Walls"
                     DestroyCurrentPanel()

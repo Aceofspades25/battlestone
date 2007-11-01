@@ -55,6 +55,20 @@
                   <xs:sequence>
                     <xs:element name="FloorID" type="xs:string" minOccurs="0" />
                     <xs:element name="TileName" type="xs:string" minOccurs="0" />
+		    <xs:element name="ImageFile" type="xs:string" minOccurs="0" />
+                    <xs:element name="TopLeft" msdata:DataType="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+              	    <xs:element name="Dimension" msdata:DataType="System.Drawing.Size, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+		    <xs:element name="TopLeftDepthL" msdata:DataType="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+              	    <xs:element name="DimensionDepthL" msdata:DataType="System.Drawing.Size, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+		    <xs:element name="TopLeftDepthR" msdata:DataType="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+              	    <xs:element name="DimensionDepthR" msdata:DataType="System.Drawing.Size, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+		    <xs:element name="Obstacle" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Position" msdata:DataType="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>

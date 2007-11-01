@@ -74,6 +74,12 @@
     <Compile Include="NewTile.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Notes.Designer.vb">
+      <DependentUpon>Notes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Notes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Parent.Designer.vb">
       <DependentUpon>Parent.vb</DependentUpon>
     </Compile>
@@ -84,12 +90,6 @@
       <DependentUpon>ctlFloor.vb</DependentUpon>
     </Compile>
     <Compile Include="ctlFloor.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ctlGround.Designer.vb">
-      <DependentUpon>ctlGround.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ctlGround.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ctlObject.Designer.vb">
@@ -134,13 +134,6 @@
     <Compile Include="CustomPanel.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -168,6 +161,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>NewTile.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Notes.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Notes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Parent.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Parent.vb</DependentUpon>
@@ -175,10 +172,6 @@
     <EmbeddedResource Include="ctlFloor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ctlFloor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ctlGround.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>ctlGround.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctlObject.resx">
       <SubType>Designer</SubType>
@@ -203,10 +196,6 @@
     <EmbeddedResource Include="TileManager.resx">
       <SubType>Designer</SubType>
       <DependentUpon>TileManager.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
