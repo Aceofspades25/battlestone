@@ -15,7 +15,7 @@
     <ManifestCertificateThumbprint>E22DCFD626EBF44EDA0122DD05A924E08670A1DD</ManifestCertificateThumbprint>
     <ManifestKeyFile>BattleEdit_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
     <PublishUrl>C:\Users\Steve\Documents\Visual Studio 2005\Projects\BattleEdit\BattleEdit\Release\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>

@@ -49,19 +49,19 @@
       </Dimension>
       <TopLeftDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <X>0</X>
-        <Y>0</Y>
+        <Y>224</Y>
       </TopLeftDepthL>
       <DimensionDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>0</Width>
-        <Height>0</Height>
+        <Width>96</Width>
+        <Height>64</Height>
       </DimensionDepthL>
       <TopLeftDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <X>0</X>
-        <Y>0</Y>
+        <Y>288</Y>
       </TopLeftDepthR>
       <DimensionDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>0</Width>
-        <Height>0</Height>
+        <Width>96</Width>
+        <Height>64</Height>
       </DimensionDepthR>
       <Obstacle>
         <Position xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
