@@ -290,6 +290,38 @@ Public Class ctlObject
         ddlGroup.DataSource = dt
     End Sub
 
+    Private Sub pbPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pbPreview.Click
+        Save()
+        Dim frmPreview As New PreviewSprite()
+        frmPreview.TileDataSet = dsTiles
+        Dim objRow As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & objID)(0)
+        'Me.ddlGroup.SelectedValue = objRow.Item("Group_Id")
+        frmPreview.TileID = objID
+        frmPreview.MdiParent = Me.ParentForm.MdiParent
+        frmPreview.Show()
+    End Sub
+
+    Private Sub pnlPreview_Scroll(ByVal sender As Object, ByVal e As System.Windows.Forms.ScrollEventArgs) Handles pnlPreview.Scroll
+        pbPreview.Location = New Point(-pnlPreview.AutoScrollPosition.X / pnlPreview.AutoScrollMinSize.Height + 5, -pnlPreview.AutoScrollPosition.Y / pnlPreview.AutoScrollMinSize.Width + 5)
+    End Sub
+
+    Private Sub pnlPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseEnter
+        If bPreview Then
+            pbPreview.Visible = True
+            pbPreview.Image = My.Resources.Preview
+        End If
+    End Sub
+
+    Private Sub pnlPreview_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseLeave
+        If pbPreview.Visible Then
+            pbPreview.Image = Nothing
+        End If
+    End Sub
+
+    Private Sub pbPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pbPreview.MouseEnter
+        pbPreview.Image = My.Resources.Preview
+    End Sub
+
     Public Sub New(ByRef ds As DataSet, ByVal ID As String)
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
@@ -345,38 +377,6 @@ Public Class ctlObject
             Next
             Populate_Obstacles()
         End If
-    End Sub
-
-    Private Sub pbPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pbPreview.Click
-        Save()
-        Dim frmPreview As New PreviewSprite()
-        frmPreview.TileDataSet = dsTiles
-        Dim objRow As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & objID)(0)
-        'Me.ddlGroup.SelectedValue = objRow.Item("Group_Id")
-        frmPreview.TileID = objID
-        frmPreview.MdiParent = Me.ParentForm.MdiParent
-        frmPreview.Show()
-    End Sub
-
-    Private Sub pnlPreview_Scroll(ByVal sender As Object, ByVal e As System.Windows.Forms.ScrollEventArgs) Handles pnlPreview.Scroll
-        pbPreview.Location = New Point(-pnlPreview.AutoScrollPosition.X / pnlPreview.AutoScrollMinSize.Height + 5, -pnlPreview.AutoScrollPosition.Y / pnlPreview.AutoScrollMinSize.Width + 5)
-    End Sub
-
-    Private Sub pnlPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseEnter
-        If bPreview Then
-            pbPreview.Visible = True
-            pbPreview.Image = My.Resources.Preview
-        End If
-    End Sub
-
-    Private Sub pnlPreview_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseLeave
-        If pbPreview.Visible Then
-            pbPreview.Image = Nothing
-        End If
-    End Sub
-
-    Private Sub pbPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pbPreview.MouseEnter
-        pbPreview.Image = My.Resources.Preview
     End Sub
 
 End Class

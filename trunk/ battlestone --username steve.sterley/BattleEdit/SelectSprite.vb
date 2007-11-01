@@ -1,8 +1,9 @@
 Public Class SelectSprite
     Dim DragStart As Point '= New Point(0, 0)
-    Dim DragSize = New Size(0, 0)
+    Dim DragSize As New Size(0, 0)
     Dim actualStart As Point '= New Point(0, 0)
-    Dim actualSize = New Size(0, 0)
+    Dim actualSize As New Size(0, 0)
+    Dim _sizeConstraint As Size = Nothing
     Dim fName As String
     Dim bm As Bitmap            ' Stores the background image
 
@@ -30,6 +31,15 @@ Public Class SelectSprite
         End Get
         Set(ByVal value As String)
             fName = value
+        End Set
+    End Property
+
+    Public Property SizeConstraint() As Size
+        Get
+            Return _sizeConstraint
+        End Get
+        Set(ByVal value As Size)
+            _sizeConstraint = value
         End Set
     End Property
 
@@ -130,7 +140,13 @@ Public Class SelectSprite
     End Sub
 
     Private Sub btnOkay_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnOkay.Click
-
+        ' Check that the selected area is  equal to the constraint if there is one
+        If Not _sizeConstraint = Nothing Then
+            If actualSize.Width <> _sizeConstraint.Width * 32 Or actualSize.Height <> _sizeConstraint.Height * 32 Then
+                MessageBox.Show("The selected image must be the following size: (" & _sizeConstraint.Width * 32 & "x" & _sizeConstraint.Height * 32 & ")", "Invalid selection size", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Me.DialogResult = Windows.Forms.DialogResult.None
+            End If
+        End If
     End Sub
 
     Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCancel.Click

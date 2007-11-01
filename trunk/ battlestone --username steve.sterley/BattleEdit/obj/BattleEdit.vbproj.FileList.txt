@@ -1,5 +1,4 @@
 obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\BattleEdit.Form1.resources
 obj\Debug\BattleEdit.Resources.resources
 obj\Debug\BattleEdit.vbproj.GenerateResource.Cache
 bin\Debug\BattleEdit.exe
@@ -11,7 +10,6 @@ obj\Debug\BattleEdit.pdb
 obj\Debug\BattleEdit.SelectSprite.resources
 obj\Debug\BattleEdit.TileManager.resources
 obj\Debug\BattleEdit.ctlFloor.resources
-obj\Debug\BattleEdit.ctlGround.resources
 obj\Debug\BattleEdit.ctlWall.resources
 obj\Debug\BattleEdit.ctlObject.resources
 obj\Debug\BattleEdit.SelectObstacles.resources
@@ -46,3 +44,4 @@ bin\Debug\BattleEdit.exe.config
 obj\Debug\BattleEdit.SingleGroup.resources
 obj\Debug\BattleEdit.NewTile.resources
 obj\Debug\BattleEdit.PreviewSprite.resources
+obj\Debug\BattleEdit.Notes.resources

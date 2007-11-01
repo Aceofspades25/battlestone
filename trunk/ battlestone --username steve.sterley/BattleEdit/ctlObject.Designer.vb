@@ -23,7 +23,7 @@ Partial Class ctlObject
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.btnSelectSprite = New System.Windows.Forms.Button
         Me.Label6 = New System.Windows.Forms.Label
         Me.tbxTileName = New System.Windows.Forms.TextBox
@@ -53,8 +53,8 @@ Partial Class ctlObject
         Me.btnAddFrame = New System.Windows.Forms.Button
         Me.btnDeleteFrame = New System.Windows.Forms.Button
         Me.pnlPreview = New BattleEdit.CustomPanel
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.pbPreview = New System.Windows.Forms.PictureBox
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.dtgObstacles, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.dtgAnimated, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,7 +91,6 @@ Partial Class ctlObject
         Me.tbxTileName.Name = "tbxTileName"
         Me.tbxTileName.Size = New System.Drawing.Size(142, 22)
         Me.tbxTileName.TabIndex = 29
-        Me.tbxTileName.Text = "Barrel 1"
         '
         'Label5
         '
@@ -156,7 +155,6 @@ Partial Class ctlObject
         Me.tbxTileID.ReadOnly = True
         Me.tbxTileID.Size = New System.Drawing.Size(142, 22)
         Me.tbxTileID.TabIndex = 22
-        Me.tbxTileID.Text = "1"
         '
         'Label3
         '
@@ -334,8 +332,8 @@ Partial Class ctlObject
         '
         Me.TopLeft.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.TopLeft.DataPropertyName = "TopLeft"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.TopLeft.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.TopLeft.DefaultCellStyle = DataGridViewCellStyle2
         Me.TopLeft.FillWeight = 50.0!
         Me.TopLeft.HeaderText = "Top left"
         Me.TopLeft.Name = "TopLeft"
@@ -391,10 +389,6 @@ Partial Class ctlObject
         Me.pnlPreview.Size = New System.Drawing.Size(204, 160)
         Me.pnlPreview.TabIndex = 31
         '
-        'Timer1
-        '
-        Me.Timer1.Interval = 50
-        '
         'pbPreview
         '
         Me.pbPreview.BackColor = System.Drawing.Color.Transparent
@@ -407,6 +401,10 @@ Partial Class ctlObject
         Me.pbPreview.TabIndex = 0
         Me.pbPreview.TabStop = False
         Me.pbPreview.Visible = False
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 50
         '
         'ctlObject
         '
