@@ -43,78 +43,79 @@ Public Class TileManager
         Next
     End Sub
 
-    Private Sub Update_TileTree(Optional ByVal keepSelected As Boolean = False)
-        '
-        ' Give this a re-think!!! There must be a better way to do this!!!
-        '
-        ' Will update this tree based on what the new dataset looks like
-        Dim selectedNode As TreeNode = TreeView1.SelectedNode
-        For g As Integer = 0 To TreeView1.Nodes(0).Nodes.Count - 1
-            ' Cycle through each group
-            Dim gID As String = TreeView1.Nodes(0).Nodes(g).Name
-            'For c As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes.Count - 1
-            ' Cycle through each category
-            For t As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes(2).Nodes.Count - 1
-                ' Cycle through each tile in the objects category
-                ' Look up this tile in the dataset - if it belongs to a different group, re-assign it
-                Dim tNode As TreeNode
-                Try
-                    tNode = TreeView1.Nodes(0).Nodes(g).Nodes(2).Nodes(t)
-                Catch ex As ArgumentOutOfRangeException
-                    ' If this exception has been caught, a node has been moved, and so the traversal of this branch has gone too far
-                    Exit For
-                End Try
-                Dim objRow As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & tNode.Name)(0)
-                Dim group As String = objRow.Item("Group_Id")
-                If group <> gID Then
-                    ' If this node is now in the wrong group, then re-assign it
-                    tNode.Remove()
-                    TreeView1.Nodes(0).Nodes(group).Nodes(2).Nodes.Add(tNode)
-                    ' Subtract one from the tile counter since we have moved a node out of this group
-                    t -= 1
-                End If
-                If objRow.Item("TileName") <> tNode.Text Then
-                    tNode.Text = objRow.Item("TileName")
-                End If
-            Next t
+    'Private Sub Update_TileTree(Optional ByVal keepSelected As Boolean = False)
+    '    '
+    '    ' Give this a re-think!!! There must be a better way to do this!!!
+    '    ' Called when a node is saved with a new name or part of a new group
+    '    '
+    '    ' Will update this tree based on what the new dataset looks like
+    '    Dim selectedNode As TreeNode = TreeView1.SelectedNode
+    '    For g As Integer = 0 To TreeView1.Nodes(0).Nodes.Count - 1
+    '        ' Cycle through each group
+    '        Dim gID As String = TreeView1.Nodes(0).Nodes(g).Name
+    '        'For c As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes.Count - 1
+    '        ' Cycle through each category
+    '        For t As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes(2).Nodes.Count - 1
+    '            ' Cycle through each tile in the objects category
+    '            ' Look up this tile in the dataset - if it belongs to a different group, re-assign it
+    '            Dim tNode As TreeNode
+    '            Try
+    '                tNode = TreeView1.Nodes(0).Nodes(g).Nodes(2).Nodes(t)
+    '            Catch ex As ArgumentOutOfRangeException
+    '                ' If this exception has been caught, a node has been moved, and so the traversal of this branch has gone too far
+    '                Exit For
+    '            End Try
+    '            Dim objRow As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & tNode.Name)(0)
+    '            Dim group As String = objRow.Item("Group_Id")
+    '            If group <> gID Then
+    '                ' If this node is now in the wrong group, then re-assign it
+    '                tNode.Remove()
+    '                TreeView1.Nodes(0).Nodes(group).Nodes(2).Nodes.Add(tNode)
+    '                ' Subtract one from the tile counter since we have moved a node out of this group
+    '                t -= 1
+    '            End If
+    '            If objRow.Item("TileName") <> tNode.Text Then
+    '                tNode.Text = objRow.Item("TileName")
+    '            End If
+    '        Next t
 
-            For t As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes(0).Nodes.Count - 1
-                ' Cycle through each tile in the Floors category
-                ' Look up this tile in the dataset - if it belongs to a different group, re-assign it
-                Dim tNode As TreeNode
-                Try
-                    tNode = TreeView1.Nodes(0).Nodes(g).Nodes(0).Nodes(t)
-                Catch ex As ArgumentOutOfRangeException
-                    ' If this exception has been caught, a node has been moved, and so the traversal of this branch has gone too far
-                    Exit For
-                End Try
-                Dim flrRow As DataRow = dsTiles.Tables("Floor").Select("Floor_Id = " & tNode.Name)(0)
-                Dim group As String = flrRow.Item("Group_Id")
-                If group <> gID Then
-                    ' If this node is now in the wrong group, then re-assign it
-                    tNode.Remove()
-                    TreeView1.Nodes(0).Nodes(group).Nodes(2).Nodes.Add(tNode)
-                    ' Subtract one from the tile counter since we have moved a node out of this group
-                    t -= 1
-                End If
-                If flrRow.Item("TileName") <> tNode.Text Then
-                    tNode.Text = flrRow.Item("TileName")
-                End If
-            Next t
-            'Next c
-        Next g
-        TreeView1.SelectedNode = selectedNode
-    End Sub
+    '        For t As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes(0).Nodes.Count - 1
+    '            ' Cycle through each tile in the Floors category
+    '            ' Look up this tile in the dataset - if it belongs to a different group, re-assign it
+    '            Dim tNode As TreeNode
+    '            Try
+    '                tNode = TreeView1.Nodes(0).Nodes(g).Nodes(0).Nodes(t)
+    '            Catch ex As ArgumentOutOfRangeException
+    '                ' If this exception has been caught, a node has been moved, and so the traversal of this branch has gone too far
+    '                Exit For
+    '            End Try
+    '            Dim flrRow As DataRow = dsTiles.Tables("Floor").Select("Floor_Id = " & tNode.Name)(0)
+    '            Dim group As String = flrRow.Item("Group_Id")
+    '            If group <> gID Then
+    '                ' If this node is now in the wrong group, then re-assign it
+    '                tNode.Remove()
+    '                TreeView1.Nodes(0).Nodes(group).Nodes(2).Nodes.Add(tNode)
+    '                ' Subtract one from the tile counter since we have moved a node out of this group
+    '                t -= 1
+    '            End If
+    '            If flrRow.Item("TileName") <> tNode.Text Then
+    '                tNode.Text = flrRow.Item("TileName")
+    '            End If
+    '        Next t
+    '        'Next c
+    '    Next g
+    '    TreeView1.SelectedNode = selectedNode
+    'End Sub
+
+    'Private Sub Update_TileTree(Optional ByVal keepSelected As Boolean = False)
+    '    'Populate_TileTree()
+    'End Sub
 
     Private Sub TileManager_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         dsTiles.ReadXmlSchema(My.Application.Info.DirectoryPath & "\Data\TileSchema.xsd")
         dsTiles.ReadXml(My.Application.Info.DirectoryPath & "\Data\TileData.xml")
         'dsTiles.WriteXmlSchema("TileSchema.xsd")
         Populate_TileTree()
-        'Me.TreeView1.Nodes(0).Expand()
-        'Me.TreeView1.Nodes(0).Nodes(0).Expand()
-        'Me.TreeView1.Nodes(0).Nodes(0).Nodes(2).Expand()
-        'Me.TreeView1.SelectedNode = Me.TreeView1.Nodes(0).Nodes(0).Nodes(2).Nodes(0)
     End Sub
 
     Private Sub InsertPanel()
@@ -128,7 +129,7 @@ Public Class TileManager
             currentPanel.Save()
             currentPanel.Dispose()
             currentPanel = Nothing
-            Update_TileTree()
+            'Update_TileTree()
         End If
     End Sub
 
@@ -137,7 +138,7 @@ Public Class TileManager
             Select Case e.Node.Parent.Text
                 Case "Floors"
                     DestroyCurrentPanel()
-                    currentPanel = New ctlFloor(dsTiles, e.Node.Name)
+                    currentPanel = New ctlFloor(dsTiles, e.Node)
                     InsertPanel()
                 Case "Walls"
                     DestroyCurrentPanel()
@@ -145,7 +146,11 @@ Public Class TileManager
                     InsertPanel()
                 Case "Objects"
                     DestroyCurrentPanel()
-                    currentPanel = New ctlObject(dsTiles, e.Node.Name)
+                    currentPanel = New ctlObject(dsTiles, e.Node)
+                    InsertPanel()
+                Case "Characters"
+                    DestroyCurrentPanel()
+                    currentPanel = New ctlCharacter()
                     InsertPanel()
                 Case Else
                     DestroyCurrentPanel()
@@ -159,16 +164,17 @@ Public Class TileManager
 
     Private Sub tsbSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbSave.Click
         If Not currentPanel Is Nothing Then currentPanel.Save()
-        Update_TileTree(True)
+        'Update_TileTree(True)
         Me.dsTiles.WriteXml(My.Application.Info.DirectoryPath & "\Data\TileData.xml")
         MessageBox.Show("All tile data saved.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub TreeView1_ItemDrag(ByVal sender As Object, ByVal e As System.Windows.Forms.ItemDragEventArgs) Handles TreeView1.ItemDrag
         Dim tn As TreeNode = CType(e.Item, TreeNode)
-        If tn.Level = 3 And tn.Parent.Text = "Objects" Then
+        If tn.Level = 3 Then
             ' Only allow Drag and Drop on level 3 nodes
-            DoDragDrop(e.Item, DragDropEffects.Move)
+            TreeView1.SelectedNode = tn.Parent
+            DoDragDrop(tn, DragDropEffects.Move)
         End If
     End Sub
 
@@ -187,7 +193,8 @@ Public Class TileManager
         Dim pt As Point = CType(sender, TreeView).PointToClient(New Point(e.X, e.Y))
         Dim targetNode As TreeNode = TreeView1.GetNodeAt(pt)
         Dim dropNode As TreeNode = CType(e.Data.GetData("System.Windows.Forms.TreeNode"), TreeNode)
-        If targetNode.Level = 1 Then
+        If targetNode.Level = 1 Or (targetNode.Level = 2 And targetNode.Name = dropNode.Parent.Name) Then
+            ' You can drag a node to another group, or any other category as long as its the same
             TreeView1.SelectedNode = targetNode
             e.Effect = DragDropEffects.Move
         End If
@@ -197,11 +204,25 @@ Public Class TileManager
         If e.Data.GetDataPresent("System.Windows.Forms.TreeNode", True) = False Then Exit Sub
         Dim dropNode As TreeNode = CType(e.Data.GetData("System.Windows.Forms.TreeNode"), TreeNode)
         Dim targetNode As TreeNode = TreeView1.SelectedNode
-        dropNode.Remove()
-        targetNode.Nodes(2).Nodes.Add(dropNode)
+        If IsNumeric(targetNode.Name) Then
+            ' If the target node is a group
+            ' Change the target node to the appropriate category under this group
+            targetNode = targetNode.Nodes(dropNode.Parent.Name)
+        End If
         ' Update the DataSet
-        Dim dRow As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & dropNode.Name)(0)
-        dRow.Item("Group_Id") = targetNode.Name
+        Dim td As New TileData(dsTiles)
+        Select Case dropNode.Parent.Name
+            Case "Floors"
+                td.Move_Tile(TileData.TileTypes.Floor, dropNode.Name, targetNode.Parent.Name)
+            Case "Walls"
+            Case "Objects"
+                td.Move_Tile(TileData.TileTypes.Object, dropNode.Name, targetNode.Parent.Name)
+            Case "Characters"
+        End Select
+        ' Update the treeview
+        dropNode.Remove()
+        targetNode.Nodes.Add(dropNode)
+
         dropNode.EnsureVisible()
         TreeView1.SelectedNode = dropNode
     End Sub
@@ -236,17 +257,31 @@ Public Class TileManager
                 MessageBox.Show("This group may not be renamed", "Can't rename group", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Return
             End If
-            Dim frmNG As New SingleGroup()
-            frmNG.GroupName = TreeView1.SelectedNode.Text
-            frmNG.GroupID = TreeView1.SelectedNode.Name
-            If frmNG.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                Dim drGroup As DataRow = dsTiles.Tables("Group").Select("Group_Id = " & TreeView1.SelectedNode.Name)(0)
-                drGroup.Item("GroupName") = frmNG.GroupName
-                TreeView1.SelectedNode.Text = frmNG.GroupName
-            End If
+            TreeView1.SelectedNode.BeginEdit()
         Else
             MessageBox.Show("Please select a group first", "Select a group", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
+    End Sub
+
+    Private Sub TreeView1_BeforeLabelEdit(ByVal sender As Object, ByVal e As System.Windows.Forms.NodeLabelEditEventArgs) Handles TreeView1.BeforeLabelEdit
+        If TreeView1.SelectedNode.Level <> 1 Then
+            ' You can only edit group names
+            e.CancelEdit = True
+        End If
+        If TreeView1.SelectedNode.Text = "Not specified" Then
+            ' You can't edit the not specified group
+            e.CancelEdit = True
+        End If
+    End Sub
+
+    Private Sub TreeView1_AfterLabelEdit(ByVal sender As Object, ByVal e As System.Windows.Forms.NodeLabelEditEventArgs) Handles TreeView1.AfterLabelEdit
+        If e.Label = "Not specified" Then
+            e.CancelEdit = True
+            MessageBox.Show("Please select a different group name", "Invalid group name", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return
+        End If
+        Dim td As New TileData(dsTiles)
+        td.Rename_Group(TreeView1.SelectedNode.Name, e.Label)
     End Sub
 
     Private Sub MoveChildNodes(ByVal oldNode As TreeNode, ByVal newNode As TreeNode)
@@ -364,10 +399,17 @@ Public Class TileManager
         If TreeView1.SelectedNode.Level = 3 Then
             If MessageBox.Show("Are you sure you want to delete the" & vbCrLf & "tile named '" & TreeView1.SelectedNode.Text & "' in the group '" & TreeView1.SelectedNode.Parent.Parent.Text & "'?", _
             "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                ' Delete the dataRow
-                Dim dr As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & TreeView1.SelectedNode.Name)(0)
-                dsTiles.Tables("Object").Rows.Remove(dr)
-                ' Delete detach the tree node
+                Dim td As New TileData(dsTiles)
+                ' Determine the tiles type to delete the dataRow
+                Select Case TreeView1.SelectedNode.Parent.Name
+                    Case "Floors"
+                        td.Delete_Tile(TileData.TileTypes.Floor, TreeView1.SelectedNode.Name)
+                    Case "Walls"
+                    Case "Objects"
+                        td.Delete_Tile(TileData.TileTypes.Object, TreeView1.SelectedNode.Name)
+                    Case "Characters"
+                End Select
+                ' Delete and detach the tree node
                 TreeView1.SelectedNode.Remove()
                 ' Delete the tree Node
                 'TreeView1.SelectedNode.

@@ -1,5 +1,6 @@
 Public Class ctlObject
 
+    Dim nodeRef As TreeNode
     Dim dtAnimFrames As DataTable
     Dim tilePosition As Point
     Dim tileSize As Size
@@ -41,7 +42,7 @@ Public Class ctlObject
             dsTiles.Tables("Obstacle").Rows.Add(newRow)
         Next
         ' Now save the animation frames
-        Dim animRows() As DataRow = dsTiles.Tables("Frames").Select("Object_Id = " & objID)
+        Dim animRows() As DataRow = dsTiles.Tables("Frames").Select - ("Object_Id = " & objID)
         ' Delete all the previous rows
         For Each animRow As DataRow In animRows
             dsTiles.Tables("Frames").Rows.Remove(animRow)
@@ -55,8 +56,16 @@ Public Class ctlObject
             newRow.Item("Object_Id") = objID
             dsTiles.Tables("Frames").Rows.Add(newRow)
         Next
-
-        'dtAnimFrames.WriteXmlSchema("test.xsd")
+        ' Now update the TreeNode that represents this structure
+        nodeRef.Text = Me.tbxTileName.Text
+        If nodeRef.Parent.Parent.Name <> ddlGroup.SelectedValue Then
+            Dim groupNode As TreeNode = nodeRef.TreeView.Nodes(0).Nodes(ddlGroup.SelectedValue.ToString())
+            Dim targetNode As TreeNode = groupNode.Nodes(nodeRef.Parent.Name)
+            ' If the current node is the selected one, de-select it, so that the following node doesn't get selected the moment this is removed
+            If nodeRef.TreeView.SelectedNode Is nodeRef Then nodeRef.TreeView.SelectedNode = Nothing
+            nodeRef.Remove()
+            targetNode.Nodes.Add(nodeRef)
+        End If
     End Sub
 
     Private Sub ctlObject_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
@@ -322,16 +331,17 @@ Public Class ctlObject
         pbPreview.Image = My.Resources.Preview
     End Sub
 
-    Public Sub New(ByRef ds As DataSet, ByVal ID As String)
+    Public Sub New(ByRef ds As DataSet, ByRef node As TreeNode)
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         dsTiles = ds
-        objID = ID
+        objID = node.Name
+        nodeRef = node
         '
         ' Set up the panel fields here
         '
         Populate_Groups(ds.Tables("Group"))
-        Dim objRow As DataRow = ds.Tables("Object").Select("Object_Id = " & ID)(0)
+        Dim objRow As DataRow = ds.Tables("Object").Select("Object_Id = " & objID)(0)
         Me.ddlGroup.SelectedValue = objRow.Item("Group_Id")
         Me.tbxTileID.Text = objRow.Item("ObjectID")
         Me.tbxTileName.Text = objRow.Item("TileName") 'AndAlso objRow.Item("TopLeft") <> ""
@@ -355,7 +365,7 @@ Public Class ctlObject
         dtAnimFrames.Columns.Add("TopLeft", GetType(Point))
         dtAnimFrames.Columns.Add("Dimension", GetType(Size))
 
-        Dim frames() As DataRow = ds.Tables("Frames").Select("Object_Id = " & ID)
+        Dim frames() As DataRow = ds.Tables("Frames").Select("Object_Id = " & objID)
         If frames.Length > 0 Then
             For Each fRow As DataRow In frames
                 ' Duplicate this row into dtAnimFrames
@@ -369,7 +379,7 @@ Public Class ctlObject
         '
         ' Add the obstacles here
         '
-        Dim obsts() As DataRow = ds.Tables("Obstacle").Select("Object_Id = " & ID)
+        Dim obsts() As DataRow = ds.Tables("Obstacle").Select("Object_Id = " & objID)
         If obsts.Length > 0 Then
             For Each oRow As DataRow In obsts
                 ' Duplicate this row into obstacles arraylist

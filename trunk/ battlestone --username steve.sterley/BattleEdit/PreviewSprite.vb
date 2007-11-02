@@ -7,15 +7,8 @@ Public Class PreviewSprite
     Dim currentImage As Bitmap
     Dim dtAnimFrames As DataTable
     Dim currentFrame As Integer = 1
-    Dim _tileType As TileTypes = TileTypes.Object
+    Dim _tileType As TileData.TileTypes = TileData.TileTypes.Object
     Dim bAnimated = True
-
-    Enum TileTypes
-        Floor
-        Wall
-        [Object]
-        Character
-    End Enum
 
     Public Property TileDataSet() As DataSet
         Get
@@ -35,11 +28,11 @@ Public Class PreviewSprite
         End Set
     End Property
 
-    Public Property TileType() As TileTypes
+    Public Property TileType() As TileData.TileTypes
         Get
             Return _tileType
         End Get
-        Set(ByVal value As TileTypes)
+        Set(ByVal value As TileData.TileTypes)
             _tileType = value
         End Set
     End Property
@@ -72,14 +65,14 @@ Public Class PreviewSprite
         Dim strTableName As String = ""
         Dim strIDColName As String = ""
         Select Case _tileType
-            Case TileTypes.Character
-            Case TileTypes.Floor
+            Case TileData.TileTypes.Character
+            Case TileData.TileTypes.Floor
                 strTableName = "Floor"
                 strIDColName = "Floor_Id"
-            Case TileTypes.Object
+            Case TileData.TileTypes.Object
                 strTableName = "Object"
                 strIDColName = "Object_Id"
-            Case TileTypes.Wall
+            Case TileData.TileTypes.Wall
         End Select
         Dim objRow As DataRow = dsTiles.Tables(strTableName).Select(strIDColName & " = " & tID)(0)
         tSize = objRow.Item("Dimension")        

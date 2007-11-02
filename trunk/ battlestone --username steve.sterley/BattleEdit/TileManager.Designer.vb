@@ -73,6 +73,7 @@ Partial Class TileManager
         Me.TreeView1.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TreeView1.FullRowSelect = True
         Me.TreeView1.HideSelection = False
+        Me.TreeView1.LabelEdit = True
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
         TreeNode1.ImageIndex = 1
