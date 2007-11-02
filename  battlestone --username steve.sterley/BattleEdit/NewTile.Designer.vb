@@ -35,7 +35,7 @@ Partial Class NewTile
         '
         Me.btnOkay.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnOkay.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnOkay.Location = New System.Drawing.Point(281, 88)
+        Me.btnOkay.Location = New System.Drawing.Point(200, 88)
         Me.btnOkay.Name = "btnOkay"
         Me.btnOkay.Size = New System.Drawing.Size(75, 23)
         Me.btnOkay.TabIndex = 0
@@ -46,7 +46,7 @@ Partial Class NewTile
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(200, 88)
+        Me.btnCancel.Location = New System.Drawing.Point(281, 88)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 1

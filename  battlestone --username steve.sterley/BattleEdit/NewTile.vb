@@ -25,7 +25,7 @@ Public Class NewTile
             Return ddlTypes.Text
         End Get
         Set(ByVal value As String)
-            'ddlGroups.SelectedValue = value
+            ddlTypes.SelectedItem = value
         End Set
     End Property
 
@@ -36,6 +36,9 @@ Public Class NewTile
     End Sub
 
     Private Sub NewTile_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.ddlTypes.SelectedIndex = 2
+        If Me.ddlTypes.SelectedIndex = -1 Then
+            Me.ddlTypes.SelectedIndex = 0
+        End If
     End Sub
+
 End Class

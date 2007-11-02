@@ -221,6 +221,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dragon.ico" />
+    <Content Include="Images\close.gif" />
+    <Content Include="Images\dragon.ico" />
+    <Content Include="Images\floor.gif" />
+    <Content Include="Images\global.gif" />
+    <Content Include="Images\ground.gif" />
+    <Content Include="Images\ground1.gif" />
+    <Content Include="Images\tiles.gif" />
+    <Content Include="Images\transparent.gif" />
+    <Content Include="Images\Wall.gif" />
+    <Content Include="Images\_arrow.gif" />
+    <Content Include="Images\_edit.gif" />
+    <Content Include="Images\_new.gif" />
+    <Content Include="Images\_tickGreen.gif" />
+    <Content Include="Images\_tickRed.gif" />
     <None Include="Images\Preview.png" />
     <None Include="Images\renameGroup.gif" />
     <None Include="app.config" />

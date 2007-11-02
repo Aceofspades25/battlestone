@@ -12,12 +12,14 @@ Public Class TileManager
             newGroup.Name = grRow.Item("Group_Id")
             newGroup.StateImageKey = "group.gif"
             ' Add Each of the categories to the group
-            Dim newFloorRoot As TreeNode = newGroup.Nodes.Add("Floors")
+            Dim newFloorRoot As TreeNode = newGroup.Nodes.Add("Floors", "Floors")
             newFloorRoot.StateImageKey = "floor.gif"
-            Dim newWallRoot As TreeNode = newGroup.Nodes.Add("Walls")
+            Dim newWallRoot As TreeNode = newGroup.Nodes.Add("Walls", "Walls")
             newWallRoot.StateImageKey = "wall.gif"
-            Dim newObjectRoot As TreeNode = newGroup.Nodes.Add("Objects")
+            Dim newObjectRoot As TreeNode = newGroup.Nodes.Add("Objects", "Objects")
             newObjectRoot.StateImageKey = "car.gif"
+            Dim newCharacterRoot As TreeNode = newGroup.Nodes.Add("Characters", "Characters")
+            newCharacterRoot.StateImageKey = "car.gif"
             Dim objects() As DataRow = dtObject.Select("Group_Id = " & grRow.Item("Group_Id"))
             For Each obj As DataRow In objects
                 ' Add Each object for this group
@@ -213,11 +215,13 @@ Public Class TileManager
             tn.StateImageKey = "group.gif"
             TreeView1.Nodes(0).Nodes.Add(tn)
             ' Add Each of the categories to the group
-            Dim newFloorRoot As TreeNode = tn.Nodes.Add("Floors")
+            Dim newFloorRoot As TreeNode = tn.Nodes.Add("Floors", "Floors")
             newFloorRoot.StateImageKey = "floor.gif"
-            Dim newWallRoot As TreeNode = tn.Nodes.Add("Walls")
+            Dim newWallRoot As TreeNode = tn.Nodes.Add("Walls", "Walls")
             newWallRoot.StateImageKey = "wall.gif"
-            Dim newObjectRoot As TreeNode = tn.Nodes.Add("Objects")
+            Dim newObjectRoot As TreeNode = tn.Nodes.Add("Objects", "Objects")
+            newObjectRoot.StateImageKey = "car.gif"
+            Dim newCharRoot As TreeNode = tn.Nodes.Add("Characters", "Characters")
             newObjectRoot.StateImageKey = "car.gif"
         End If
     End Sub
@@ -306,21 +310,47 @@ Public Class TileManager
     Private Sub tsbNewTile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbNewTile.Click
         Dim frmNT As New NewTile()
         frmNT.GroupsTable = dsTiles.Tables("Group")
-        If TreeView1.SelectedNode.Level = 2 And TreeView1.SelectedNode.Text = "Objects" Then
-            frmNT.SelectedGroup = TreeView1.SelectedNode.Parent.Name
-        End If
-        If frmNT.ShowDialog = Windows.Forms.DialogResult.OK Then
-            ' If it was a new object
-            Dim dr As DataRow = dsTiles.Tables("Object").NewRow()
+        Select Case TreeView1.SelectedNode.Level
+            Case 1
+                frmNT.SelectedGroup = TreeView1.SelectedNode.Name
+            Case 2
+                frmNT.SelectedGroup = TreeView1.SelectedNode.Parent.Name
+                frmNT.SelectedType = TreeView1.SelectedNode.Text
+            Case 3
+                frmNT.SelectedGroup = TreeView1.SelectedNode.Parent.Parent.Name
+                frmNT.SelectedType = TreeView1.SelectedNode.Parent.Text
+        End Select
+        If frmNT.ShowDialog = Windows.Forms.DialogResult.OK Then            
+            Dim strTableName As String = ""
+            Dim strIDField As String = ""
+            Dim strAutoNumField As String = ""
+            Dim strImageKey As String = ""
+            Select Case frmNT.SelectedType
+                Case "Objects"
+                    ' If it was a new object
+                    strTableName = "Object"
+                    strIDField = "ObjectID"
+                    strAutoNumField = "Object_Id"
+                    strImageKey = "car.gif"
+                Case "Floors"
+                    ' If it was a new floor
+                    strTableName = "Floor"
+                    strIDField = "FloorID"
+                    strAutoNumField = "Floor_Id"
+                    strImageKey = "floor.gif"
+            End Select
+            Dim dr As DataRow = dsTiles.Tables(strTableName).NewRow()
+            dr.Item(strIDField) = dsTiles.Tables(strTableName).Compute("Max(" & strIDField & ")", "") + 1
             dr.Item("Group_Id") = frmNT.SelectedGroup
             dr.Item("TileName") = "New tile"
-            dr.Item("ObjectID") = dsTiles.Tables("Object").Compute("Max(ObjectID)", "") + 1
-            dsTiles.Tables("Object").Rows.Add(dr)
+            dsTiles.Tables(strTableName).Rows.Add(dr)
+
             Dim newTileNode As New TreeNode("New tile")
-            newTileNode.Name = dr.Item("Object_Id")
-            newTileNode.StateImageKey = "car.gif"
+            newTileNode.Name = dr.Item(strAutoNumField)
+            newTileNode.StateImageKey = strImageKey
             Dim parentGroup As TreeNode = TreeView1.Nodes.Find(dr.Item("Group_Id"), True)(0)
-            parentGroup.Nodes(2).Nodes.Add(newTileNode)
+            Dim parent As TreeNode = parentGroup.Nodes.Find(frmNT.SelectedType, True)(0)
+            parent.Nodes.Add(newTileNode)
             newTileNode.EnsureVisible()
             TreeView1.SelectedNode = newTileNode
         End If
