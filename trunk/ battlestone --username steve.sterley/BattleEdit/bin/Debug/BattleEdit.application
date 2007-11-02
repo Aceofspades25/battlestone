@@ -4,14 +4,14 @@
   <description asmv2:publisher="BattleEdit" asmv2:product="BattleEdit" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="BattleEdit.exe.manifest" size="2980">
+    <dependentAssembly dependencyType="install" codebase="BattleEdit.exe.manifest" size="8251">
       <assemblyIdentity name="BattleEdit.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>PNsmU+HA1bJgntouDSIYVFAoz4E=</dsig:DigestValue>
+        <dsig:DigestValue>4ovs97cqv+biiPRaSyCcXRL8Fwk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
