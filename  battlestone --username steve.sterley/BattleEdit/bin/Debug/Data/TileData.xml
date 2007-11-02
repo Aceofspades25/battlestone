@@ -6,6 +6,14 @@
   </TilesHeader>
   <Group>
     <GroupName>Not specified</GroupName>
+    <Wall>
+      <WallID>1</WallID>
+      <TileName>Small</TileName>
+    </Wall>
+    <Character>
+      <CharacterID>1</CharacterID>
+      <TileName>NPC1</TileName>
+    </Character>
     <Floor>
       <FloorID>1</FloorID>
       <TileName>Small</TileName>
@@ -62,6 +70,35 @@
       <DimensionDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Width>96</Width>
         <Height>64</Height>
+      </DimensionDepthR>
+    </Floor>
+    <Floor>
+      <FloorID>3</FloorID>
+      <TileName>Very large</TileName>
+      <ImageFile>Sprites\Grid2.png</ImageFile>
+      <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>96</X>
+        <Y>288</Y>
+      </TopLeft>
+      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>384</Width>
+        <Height>192</Height>
+      </Dimension>
+      <TopLeftDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>0</X>
+        <Y>0</Y>
+      </TopLeftDepthL>
+      <DimensionDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>0</Width>
+        <Height>0</Height>
+      </DimensionDepthL>
+      <TopLeftDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>0</X>
+        <Y>0</Y>
+      </TopLeftDepthR>
+      <DimensionDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>0</Width>
+        <Height>0</Height>
       </DimensionDepthR>
     </Floor>
   </Group>
@@ -501,35 +538,6 @@
         </Dimension>
       </Frames>
     </Object>
-    <Floor>
-      <FloorID>3</FloorID>
-      <TileName>Very large</TileName>
-      <ImageFile>Sprites\Grid2.png</ImageFile>
-      <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <X>96</X>
-        <Y>288</Y>
-      </TopLeft>
-      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>384</Width>
-        <Height>192</Height>
-      </Dimension>
-      <TopLeftDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <X>0</X>
-        <Y>0</Y>
-      </TopLeftDepthL>
-      <DimensionDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>0</Width>
-        <Height>0</Height>
-      </DimensionDepthL>
-      <TopLeftDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <X>0</X>
-        <Y>0</Y>
-      </TopLeftDepthR>
-      <DimensionDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>0</Width>
-        <Height>0</Height>
-      </DimensionDepthR>
-    </Floor>
   </Group>
   <Group>
     <GroupName>Castle1</GroupName>

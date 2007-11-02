@@ -7,6 +7,7 @@ Public Class TileManager
         Dim dtObject As DataTable = dsTiles.Tables("Object")
         Dim dtWall As DataTable = dsTiles.Tables("Wall")
         Dim dtFloor As DataTable = dsTiles.Tables("Floor")
+        Dim dtCharacter As DataTable = dsTiles.Tables("Character")
         For Each grRow As DataRow In dtGroup.Rows
             Dim newGroup As TreeNode = Me.TreeView1.Nodes(0).Nodes.Add(grRow.Item("GroupName"))
             newGroup.Name = grRow.Item("Group_Id")
@@ -32,6 +33,7 @@ Public Class TileManager
                 ' Add Each object for this group
                 Dim newWall As TreeNode = newWallRoot.Nodes.Add(wall.Item("TileName"))
                 newWall.StateImageKey = "wall.gif"
+                newWall.Name = wall.Item("Wall_Id")
             Next
             Dim floors() As DataRow = dtFloor.Select("Group_Id = " & grRow.Item("Group_Id"))
             For Each floor As DataRow In floors
@@ -40,76 +42,15 @@ Public Class TileManager
                 newFloor.StateImageKey = "floor.gif"
                 newFloor.Name = floor.Item("Floor_Id")
             Next
+            Dim characters() As DataRow = dtCharacter.Select("Group_Id = " & grRow.Item("Group_Id"))
+            For Each character As DataRow In characters
+                ' Add Each object for this group
+                Dim newChar As TreeNode = newCharacterRoot.Nodes.Add(character.Item("TileName"))
+                newChar.StateImageKey = "character.gif"
+                newChar.Name = character.Item("Character_Id")
+            Next
         Next
     End Sub
-
-    'Private Sub Update_TileTree(Optional ByVal keepSelected As Boolean = False)
-    '    '
-    '    ' Give this a re-think!!! There must be a better way to do this!!!
-    '    ' Called when a node is saved with a new name or part of a new group
-    '    '
-    '    ' Will update this tree based on what the new dataset looks like
-    '    Dim selectedNode As TreeNode = TreeView1.SelectedNode
-    '    For g As Integer = 0 To TreeView1.Nodes(0).Nodes.Count - 1
-    '        ' Cycle through each group
-    '        Dim gID As String = TreeView1.Nodes(0).Nodes(g).Name
-    '        'For c As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes.Count - 1
-    '        ' Cycle through each category
-    '        For t As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes(2).Nodes.Count - 1
-    '            ' Cycle through each tile in the objects category
-    '            ' Look up this tile in the dataset - if it belongs to a different group, re-assign it
-    '            Dim tNode As TreeNode
-    '            Try
-    '                tNode = TreeView1.Nodes(0).Nodes(g).Nodes(2).Nodes(t)
-    '            Catch ex As ArgumentOutOfRangeException
-    '                ' If this exception has been caught, a node has been moved, and so the traversal of this branch has gone too far
-    '                Exit For
-    '            End Try
-    '            Dim objRow As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & tNode.Name)(0)
-    '            Dim group As String = objRow.Item("Group_Id")
-    '            If group <> gID Then
-    '                ' If this node is now in the wrong group, then re-assign it
-    '                tNode.Remove()
-    '                TreeView1.Nodes(0).Nodes(group).Nodes(2).Nodes.Add(tNode)
-    '                ' Subtract one from the tile counter since we have moved a node out of this group
-    '                t -= 1
-    '            End If
-    '            If objRow.Item("TileName") <> tNode.Text Then
-    '                tNode.Text = objRow.Item("TileName")
-    '            End If
-    '        Next t
-
-    '        For t As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes(0).Nodes.Count - 1
-    '            ' Cycle through each tile in the Floors category
-    '            ' Look up this tile in the dataset - if it belongs to a different group, re-assign it
-    '            Dim tNode As TreeNode
-    '            Try
-    '                tNode = TreeView1.Nodes(0).Nodes(g).Nodes(0).Nodes(t)
-    '            Catch ex As ArgumentOutOfRangeException
-    '                ' If this exception has been caught, a node has been moved, and so the traversal of this branch has gone too far
-    '                Exit For
-    '            End Try
-    '            Dim flrRow As DataRow = dsTiles.Tables("Floor").Select("Floor_Id = " & tNode.Name)(0)
-    '            Dim group As String = flrRow.Item("Group_Id")
-    '            If group <> gID Then
-    '                ' If this node is now in the wrong group, then re-assign it
-    '                tNode.Remove()
-    '                TreeView1.Nodes(0).Nodes(group).Nodes(2).Nodes.Add(tNode)
-    '                ' Subtract one from the tile counter since we have moved a node out of this group
-    '                t -= 1
-    '            End If
-    '            If flrRow.Item("TileName") <> tNode.Text Then
-    '                tNode.Text = flrRow.Item("TileName")
-    '            End If
-    '        Next t
-    '        'Next c
-    '    Next g
-    '    TreeView1.SelectedNode = selectedNode
-    'End Sub
-
-    'Private Sub Update_TileTree(Optional ByVal keepSelected As Boolean = False)
-    '    'Populate_TileTree()
-    'End Sub
 
     Private Sub TileManager_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         dsTiles.ReadXmlSchema(My.Application.Info.DirectoryPath & "\Data\TileSchema.xsd")
