@@ -70,7 +70,6 @@ Public Class TileManager
             currentPanel.Save()
             currentPanel.Dispose()
             currentPanel = Nothing
-            'Update_TileTree()
         End If
     End Sub
 
@@ -83,7 +82,7 @@ Public Class TileManager
                     InsertPanel()
                 Case "Walls"
                     DestroyCurrentPanel()
-                    currentPanel = New ctlWall()
+                    currentPanel = New ctlWall(dsTiles, e.Node)
                     InsertPanel()
                 Case "Objects"
                     DestroyCurrentPanel()
@@ -105,7 +104,6 @@ Public Class TileManager
 
     Private Sub tsbSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbSave.Click
         If Not currentPanel Is Nothing Then currentPanel.Save()
-        'Update_TileTree(True)
         Me.dsTiles.WriteXml(My.Application.Info.DirectoryPath & "\Data\TileData.xml")
         MessageBox.Show("All tile data saved.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub

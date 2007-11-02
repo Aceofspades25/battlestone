@@ -9,6 +9,19 @@
     <Wall>
       <WallID>1</WallID>
       <TileName>Small</TileName>
+      <ImageFile>Sprites\Grid2.png</ImageFile>
+      <TopLeftLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>32</X>
+        <Y>64</Y>
+      </TopLeftLeft>
+      <TopLeftRight xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>0</X>
+        <Y>64</Y>
+      </TopLeftRight>
+      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>32</Width>
+        <Height>160</Height>
+      </Dimension>
     </Wall>
     <Character>
       <CharacterID>1</CharacterID>

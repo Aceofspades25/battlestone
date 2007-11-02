@@ -62,8 +62,8 @@ Partial Class TileManager
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblSelectTile)
-        Me.SplitContainer1.Size = New System.Drawing.Size(603, 481)
-        Me.SplitContainer1.SplitterDistance = 170
+        Me.SplitContainer1.Size = New System.Drawing.Size(677, 481)
+        Me.SplitContainer1.SplitterDistance = 180
         Me.SplitContainer1.TabIndex = 0
         '
         'TreeView1
@@ -81,7 +81,7 @@ Partial Class TileManager
         TreeNode1.StateImageIndex = 0
         TreeNode1.Text = "All tile groups"
         Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
-        Me.TreeView1.Size = New System.Drawing.Size(166, 477)
+        Me.TreeView1.Size = New System.Drawing.Size(176, 477)
         Me.TreeView1.StateImageList = Me.ImageList1
         Me.TreeView1.TabIndex = 0
         '
@@ -101,7 +101,7 @@ Partial Class TileManager
         '
         Me.lblSelectTile.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblSelectTile.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSelectTile.Location = New System.Drawing.Point(92, 155)
+        Me.lblSelectTile.Location = New System.Drawing.Point(124, 155)
         Me.lblSelectTile.Name = "lblSelectTile"
         Me.lblSelectTile.Size = New System.Drawing.Size(237, 118)
         Me.lblSelectTile.TabIndex = 3
@@ -113,7 +113,7 @@ Partial Class TileManager
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 510)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(603, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(677, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -134,7 +134,7 @@ Partial Class TileManager
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbSave, Me.tsbNewGroup, Me.tsbRenameGroup, Me.tsbDeleteGroup, Me.tsbNewTile, Me.tsbDeleteTile})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(603, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(677, 25)
         Me.ToolStrip1.TabIndex = 2
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -195,7 +195,7 @@ Partial Class TileManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(603, 532)
+        Me.ClientSize = New System.Drawing.Size(677, 532)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.SplitContainer1)

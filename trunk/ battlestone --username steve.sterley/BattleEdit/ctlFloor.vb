@@ -1,6 +1,5 @@
 Public Class ctlFloor
 
-    Dim nodeRef As TreeNode
     Dim tilePosition As Point = Nothing
     Dim tileSize As Size = Nothing
     Dim depthSizeL As Size = Nothing
@@ -14,6 +13,7 @@ Public Class ctlFloor
 
     Dim dsTiles As DataSet  ' The Global DataSet which stores all tile data
     Dim floorID As String ' The ID for this particular Tile
+    Dim nodeRef As TreeNode ' Stores a ref. to the treenode this was opened from
 
     Public Overrides Sub Save()
         ' When this control is browsed away from, save all the changes made to the global dataset (dsTiles)
