@@ -47,6 +47,28 @@
                   <xs:sequence>
                     <xs:element name="WallID" type="xs:string" minOccurs="0" />
                     <xs:element name="TileName" type="xs:string" minOccurs="0" />
+		    <xs:element name="Obstacle" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Position" msdata:DataType="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+	      <xs:element name="Character" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="CharacterID" type="xs:string" minOccurs="0" />
+                    <xs:element name="TileName" type="xs:string" minOccurs="0" />
+		    <xs:element name="Obstacle" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Position" msdata:DataType="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" type="xs:anyType" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>

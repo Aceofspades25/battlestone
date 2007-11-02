@@ -42,7 +42,7 @@ Public Class ctlObject
             dsTiles.Tables("Obstacle").Rows.Add(newRow)
         Next
         ' Now save the animation frames
-        Dim animRows() As DataRow = dsTiles.Tables("Frames").Select - ("Object_Id = " & objID)
+        Dim animRows() As DataRow = dsTiles.Tables("Frames").Select("Object_Id = " & objID)
         ' Delete all the previous rows
         For Each animRow As DataRow In animRows
             dsTiles.Tables("Frames").Rows.Remove(animRow)
