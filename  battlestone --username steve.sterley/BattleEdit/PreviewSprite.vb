@@ -2,10 +2,20 @@ Public Class PreviewSprite
     Dim dsTiles As DataSet
     Dim tID As Integer
     Dim tSize As Size
+    Dim tPos As Point
     Dim tileFile As String
     Dim currentImage As Bitmap
     Dim dtAnimFrames As DataTable
     Dim currentFrame As Integer = 1
+    Dim _tileType As TileTypes = TileTypes.Object
+    Dim bAnimated = True
+
+    Enum TileTypes
+        Floor
+        Wall
+        [Object]
+        Character
+    End Enum
 
     Public Property TileDataSet() As DataSet
         Get
@@ -25,19 +35,55 @@ Public Class PreviewSprite
         End Set
     End Property
 
+    Public Property TileType() As TileTypes
+        Get
+            Return _tileType
+        End Get
+        Set(ByVal value As TileTypes)
+            _tileType = value
+        End Set
+    End Property
+
+    Public Property Animated() As Boolean
+        Get
+            Return bAnimated
+        End Get
+        Set(ByVal value As Boolean)
+            bAnimated = value
+        End Set
+    End Property
+
     Private Sub Draw_Frame()
         currentImage = New Bitmap(tSize.Width, tSize.Height)
         Dim g As Graphics = Graphics.FromImage(currentImage)
         g.FillRectangle(Brushes.Black, 0, 0, currentImage.Width, currentImage.Height)
         Dim bm As New Bitmap(tileFile)
         bm.MakeTransparent(Color.FromArgb(255, 255, 0, 255))
-        Dim imgStart As Point = dtAnimFrames.Rows(currentFrame - 1).Item("TopLeft")
+        Dim imgStart As Point
+        If bAnimated Then
+            imgStart = dtAnimFrames.Rows(currentFrame - 1).Item("TopLeft")
+        Else
+            imgStart = tPos
+        End If
         g.DrawImage(bm, New Rectangle(0, 0, tSize.Width, tSize.Height), New Rectangle(imgStart.X, imgStart.Y, tSize.Width, tSize.Height), GraphicsUnit.Pixel)
     End Sub
 
     Private Sub Setup_Preview()
-        Dim objRow As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & tID)(0)
-        tSize = objRow.Item("Dimension")
+        Dim strTableName As String = ""
+        Dim strIDColName As String = ""
+        Select Case _tileType
+            Case TileTypes.Character
+            Case TileTypes.Floor
+                strTableName = "Floor"
+                strIDColName = "Floor_Id"
+            Case TileTypes.Object
+                strTableName = "Object"
+                strIDColName = "Object_Id"
+            Case TileTypes.Wall
+        End Select
+        Dim objRow As DataRow = dsTiles.Tables(strTableName).Select(strIDColName & " = " & tID)(0)
+        tSize = objRow.Item("Dimension")        
+        tPos = objRow.Item("TopLeft")
         tileFile = My.Application.Info.DirectoryPath & "\" & objRow.Item("ImageFile")
         '
         ' Add the animation frames here
@@ -47,16 +93,18 @@ Public Class PreviewSprite
         dtAnimFrames.Columns.Add("TopLeft", GetType(Point))
         dtAnimFrames.Columns.Add("Dimension", GetType(Size))
 
-        Dim frames() As DataRow = dsTiles.Tables("Frames").Select("Object_Id = " & tID)
-        If frames.Length > 0 Then
-            For Each fRow As DataRow In frames
-                ' Duplicate this row into dtAnimFrames
-                Dim dr As DataRow = dtAnimFrames.NewRow()
-                dr.Item("FrameNum") = fRow.Item("FrameNum")
-                dr.Item("TopLeft") = fRow.Item("TopLeft")
-                dr.Item("Dimension") = fRow.Item("Dimension")
-                dtAnimFrames.Rows.Add(dr)
-            Next
+        If bAnimated Then
+            Dim frames() As DataRow = dsTiles.Tables("Frames").Select(strIDColName & " = " & tID)
+            If frames.Length > 0 Then
+                For Each fRow As DataRow In frames
+                    ' Duplicate this row into dtAnimFrames
+                    Dim dr As DataRow = dtAnimFrames.NewRow()
+                    dr.Item("FrameNum") = fRow.Item("FrameNum")
+                    dr.Item("TopLeft") = fRow.Item("TopLeft")
+                    dr.Item("Dimension") = fRow.Item("Dimension")
+                    dtAnimFrames.Rows.Add(dr)
+                Next
+            End If
         End If
 
         Dim mySize As New Size
