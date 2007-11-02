@@ -68,6 +68,13 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctlCharacter.Designer.vb">
+      <DependentUpon>ctlCharacter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctlCharacter.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataAccess\TileData.vb" />
     <Compile Include="NewTile.Designer.vb">
       <DependentUpon>NewTile.vb</DependentUpon>
     </Compile>
@@ -157,6 +164,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ctlCharacter.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ctlCharacter.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewTile.resx">
       <SubType>Designer</SubType>
       <DependentUpon>NewTile.vb</DependentUpon>

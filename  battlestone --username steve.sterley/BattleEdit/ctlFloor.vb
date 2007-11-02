@@ -1,5 +1,6 @@
 Public Class ctlFloor
 
+    Dim nodeRef As TreeNode
     Dim tilePosition As Point = Nothing
     Dim tileSize As Size = Nothing
     Dim depthSizeL As Size = Nothing
@@ -44,7 +45,17 @@ Public Class ctlFloor
             newRow.Item("Position") = obs
             newRow.Item("Floor_Id") = floorID
             dsTiles.Tables("Obstacle").Rows.Add(newRow)
-        Next        
+        Next
+        ' Now update the TreeNode that represents this structure
+        nodeRef.Text = Me.tbxTileName.Text
+        If nodeRef.Parent.Parent.Name <> ddlGroup.SelectedValue Then            
+            Dim groupNode As TreeNode = nodeRef.TreeView.Nodes(0).Nodes(ddlGroup.SelectedValue.ToString())
+            Dim targetNode As TreeNode = groupNode.Nodes(nodeRef.Parent.Name)
+            ' If the current node is the selected one, de-select it, so that the following node doesn't get selected the moment this is removed
+            If nodeRef.TreeView.SelectedNode Is nodeRef Then nodeRef.TreeView.SelectedNode = Nothing
+            nodeRef.Remove()
+            targetNode.Nodes.Add(nodeRef)
+        End If
     End Sub
 
     Private Sub pnlPreview_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles pnlPreview.Paint
@@ -192,7 +203,7 @@ Public Class ctlFloor
         frmPreview.TileDataSet = dsTiles
         'Dim objRow As DataRow = dsTiles.Tables("Floor").Select("Floor_Id = " & floorID)(0)
         'Me.ddlGroup.SelectedValue = objRow.Item("Group_Id")
-        frmPreview.TileType = PreviewSprite.TileTypes.Floor
+        frmPreview.TileType = TileData.TileTypes.Floor
         frmPreview.TileID = floorID
         frmPreview.Animated = False
         frmPreview.MdiParent = Me.ParentForm.MdiParent
@@ -220,16 +231,17 @@ Public Class ctlFloor
         pbPreview.Image = My.Resources.Preview
     End Sub
 
-    Public Sub New(ByRef ds As DataSet, ByVal ID As String)
+    Public Sub New(ByRef ds As DataSet, ByRef node As TreeNode)
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         dsTiles = ds
-        floorID = ID
+        floorID = node.Name
+        nodeRef = node
         '
         ' Set up the panel fields here
         '
         Populate_Groups(ds.Tables("Group"))
-        Dim flrRow As DataRow = ds.Tables("Floor").Select("Floor_Id = " & ID)(0)
+        Dim flrRow As DataRow = ds.Tables("Floor").Select("Floor_Id = " & floorID)(0)
         Me.ddlGroup.SelectedValue = flrRow.Item("Group_Id")
         Me.tbxTileID.Text = flrRow.Item("FloorID")
         Me.tbxTileName.Text = flrRow.Item("TileName")
@@ -267,7 +279,7 @@ Public Class ctlFloor
         '
         ' Add the obstacles here
         '
-        Dim obsts() As DataRow = ds.Tables("Obstacle").Select("Floor_Id = " & ID)
+        Dim obsts() As DataRow = ds.Tables("Obstacle").Select("Floor_Id = " & floorID)
         If obsts.Length > 0 Then
             For Each oRow As DataRow In obsts
                 ' Duplicate this row into obstacles arraylist
