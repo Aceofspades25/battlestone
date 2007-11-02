@@ -28,6 +28,16 @@ Public Class Notes
                 "It's like this at the moment, becuase I am just trying to get this finished as quickly " & _
                 "as possible, so I can get started on the level editor" & vbCrLf & vbCrLf
                 Me.tbxNotes.Text &= "For now obstacles cannot be added for floor tiles, but I will be adding this soon."
+            Case Sections.WallTiles
+                Me.lbl.Text = "Notes on wall tiles"
+                Me.tbxNotes.Text = "You cannot set obstacles for wall tiles yet, but this will be coming soon. " & _
+                "For now, the entire length of any wall will be considered solid, and characters won't be able to " & _
+                "pass through them. Later you will be able to allow characters to pass through sections of wall tiles. " & _
+                "e.g. picture a big open gate that forms part of a fence." & vbCrLf & vbCrLf
+                Me.tbxNotes.Text &= "There is a small square piece that forms part of the wall depth that should show " & _
+                "at any point where a horizontal and vertical wall join. I haven't quite figured whether I will let " & _
+                "that be set here, or even if it's really needed. I may try to generate this automatically by using the " & _
+                "existing wall depth pieces."
         End Select
     End Sub
 
