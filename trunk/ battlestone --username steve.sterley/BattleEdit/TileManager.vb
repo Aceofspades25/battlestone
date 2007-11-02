@@ -19,7 +19,7 @@ Public Class TileManager
             Dim newObjectRoot As TreeNode = newGroup.Nodes.Add("Objects", "Objects")
             newObjectRoot.StateImageKey = "car.gif"
             Dim newCharacterRoot As TreeNode = newGroup.Nodes.Add("Characters", "Characters")
-            newCharacterRoot.StateImageKey = "car.gif"
+            newCharacterRoot.StateImageKey = "character.gif"
             Dim objects() As DataRow = dtObject.Select("Group_Id = " & grRow.Item("Group_Id"))
             For Each obj As DataRow In objects
                 ' Add Each object for this group
@@ -44,6 +44,9 @@ Public Class TileManager
     End Sub
 
     Private Sub Update_TileTree(Optional ByVal keepSelected As Boolean = False)
+        '
+        ' Give this a re-think!!! There must be a better way to do this!!!
+        '
         ' Will update this tree based on what the new dataset looks like
         Dim selectedNode As TreeNode = TreeView1.SelectedNode
         For g As Integer = 0 To TreeView1.Nodes(0).Nodes.Count - 1
@@ -74,8 +77,9 @@ Public Class TileManager
                     tNode.Text = objRow.Item("TileName")
                 End If
             Next t
+
             For t As Integer = 0 To TreeView1.Nodes(0).Nodes(g).Nodes(0).Nodes.Count - 1
-                ' Cycle through each tile in the objects category
+                ' Cycle through each tile in the Floors category
                 ' Look up this tile in the dataset - if it belongs to a different group, re-assign it
                 Dim tNode As TreeNode
                 Try
@@ -222,7 +226,7 @@ Public Class TileManager
             Dim newObjectRoot As TreeNode = tn.Nodes.Add("Objects", "Objects")
             newObjectRoot.StateImageKey = "car.gif"
             Dim newCharRoot As TreeNode = tn.Nodes.Add("Characters", "Characters")
-            newObjectRoot.StateImageKey = "car.gif"
+            newObjectRoot.StateImageKey = "character.gif"
         End If
     End Sub
 

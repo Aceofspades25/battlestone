@@ -23,7 +23,7 @@ Partial Class TileManager
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("All tile groups")
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("All tile groups")
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TileManager))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.TreeView1 = New System.Windows.Forms.TreeView
@@ -75,11 +75,11 @@ Partial Class TileManager
         Me.TreeView1.HideSelection = False
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode2.ImageIndex = 1
-        TreeNode2.Name = "Node0"
-        TreeNode2.StateImageIndex = 0
-        TreeNode2.Text = "All tile groups"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
+        TreeNode1.ImageIndex = 1
+        TreeNode1.Name = "Node0"
+        TreeNode1.StateImageIndex = 0
+        TreeNode1.Text = "All tile groups"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.TreeView1.Size = New System.Drawing.Size(166, 477)
         Me.TreeView1.StateImageList = Me.ImageList1
         Me.TreeView1.TabIndex = 0
@@ -94,6 +94,7 @@ Partial Class TileManager
         Me.ImageList1.Images.SetKeyName(3, "Wall.gif")
         Me.ImageList1.Images.SetKeyName(4, "car.gif")
         Me.ImageList1.Images.SetKeyName(5, "floor.gif")
+        Me.ImageList1.Images.SetKeyName(6, "Character.gif")
         '
         'lblSelectTile
         '

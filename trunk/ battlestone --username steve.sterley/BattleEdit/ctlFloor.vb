@@ -41,7 +41,7 @@ Public Class ctlFloor
         ' Add the latest rows
         For Each obs As Point In obstacles
             Dim newRow As DataRow = dsTiles.Tables("Obstacle").NewRow()
-            newRow.Item("Position") = obs 'obs.X & "," & obs.Y
+            newRow.Item("Position") = obs
             newRow.Item("Floor_Id") = floorID
             dsTiles.Tables("Obstacle").Rows.Add(newRow)
         Next        
@@ -71,9 +71,10 @@ Public Class ctlFloor
                 startPos.X = 0
                 size.Width = tileSize.Width
             End If
-            If (tileSize.Height > pnlPreview.Height) Then
+            If (tileSize.Height + 16 > pnlPreview.Height) Then
+                ' Add 16 for depth pieces
                 startPos.Y = 0
-                size.Height = tileSize.Height
+                size.Height = tileSize.Height + 16
             End If
             ' currentImage stores what will currently be shown in the preview panel
             currentImage = New Bitmap(size.Width, size.Height)
@@ -94,7 +95,13 @@ Public Class ctlFloor
     End Sub
 
     Private Sub ctlFloor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        pnlPreview.AutoScrollMinSize = New Size(tileSize.Width, tileSize.Height + 16)
         Draw_Image()
+        If tileSize.Width > pnlPreview.Width Or tileSize.Height + 16 > pnlPreview.Height Then
+            bPreview = True
+        Else
+            bPreview = False
+        End If
     End Sub
 
     Private Sub Populate_Obstacles()
@@ -136,6 +143,11 @@ Public Class ctlFloor
             Me.tbxTopLeft.Text = "(" & tilePosition.X & ", " & tilePosition.Y & ")"
             Me.tbxDimension.Text = tileSize.Width & " x " & tileSize.Height
             Draw_Image()
+            If tileSize.Width > pnlPreview.Width Or tileSize.Height > pnlPreview.Height Then
+                bPreview = True
+            Else
+                bPreview = False
+            End If
             Me.pnlPreview.Invalidate()
         End If
     End Sub
@@ -172,6 +184,40 @@ Public Class ctlFloor
                 Me.pnlPreview.Invalidate()
             End If
         End If
+    End Sub
+
+    Private Sub pbPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pbPreview.Click
+        Save()
+        Dim frmPreview As New PreviewSprite()
+        frmPreview.TileDataSet = dsTiles
+        'Dim objRow As DataRow = dsTiles.Tables("Floor").Select("Floor_Id = " & floorID)(0)
+        'Me.ddlGroup.SelectedValue = objRow.Item("Group_Id")
+        frmPreview.TileType = PreviewSprite.TileTypes.Floor
+        frmPreview.TileID = floorID
+        frmPreview.Animated = False
+        frmPreview.MdiParent = Me.ParentForm.MdiParent
+        frmPreview.Show()
+    End Sub
+
+    Private Sub pnlPreview_Scroll(ByVal sender As Object, ByVal e As System.Windows.Forms.ScrollEventArgs) Handles pnlPreview.Scroll
+        pbPreview.Location = New Point(-pnlPreview.AutoScrollPosition.X / pnlPreview.AutoScrollMinSize.Height + 5, -pnlPreview.AutoScrollPosition.Y / pnlPreview.AutoScrollMinSize.Width + 5)
+    End Sub
+
+    Private Sub pnlPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseEnter
+        If bPreview Then
+            pbPreview.Visible = True
+            pbPreview.Image = My.Resources.Preview
+        End If
+    End Sub
+
+    Private Sub pnlPreview_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseLeave
+        If pbPreview.Visible Then
+            pbPreview.Image = Nothing
+        End If
+    End Sub
+
+    Private Sub pbPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pbPreview.MouseEnter
+        pbPreview.Image = My.Resources.Preview
     End Sub
 
     Public Sub New(ByRef ds As DataSet, ByVal ID As String)
@@ -221,11 +267,11 @@ Public Class ctlFloor
         '
         ' Add the obstacles here
         '
-        Dim obsts() As DataRow = ds.Tables("Obstacle").Select("Object_Id = " & ID)
+        Dim obsts() As DataRow = ds.Tables("Obstacle").Select("Floor_Id = " & ID)
         If obsts.Length > 0 Then
             For Each oRow As DataRow In obsts
                 ' Duplicate this row into obstacles arraylist
-                obstacles.Add(oRow.Item("Position")) 'New Point(oRow.Item("Position").split(",")(0), oRow.Item("Position").split(",")(1)))
+                obstacles.Add(oRow.Item("Position"))
             Next
             Populate_Obstacles()
         End If
