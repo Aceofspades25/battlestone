@@ -37,7 +37,12 @@ Public Class Notes
                 Me.tbxNotes.Text &= "There is a small square piece that forms part of the wall depth that should show " & _
                 "at any point where a horizontal and vertical wall join. I haven't quite figured whether I will let " & _
                 "that be set here, or even if it's really needed. I may try to generate this automatically by using the " & _
-                "existing wall depth pieces."
+                "existing wall depth pieces." & vbCrLf & vbCrLf
+                Me.tbxNotes.Text &= "When you choose for the right wall to mirror the left, it won't show as being lighter " & _
+                "than the left wall. This is because this editor was written in vb.net using GDI+. GDI+ Can darken and lighten " & _
+                "pixels, but the easy way to do this is slow and inefficient. Because of this, the two walls will appear to have " & _
+                "the same brightness. On the other hand, within the game itself, the walls will be rendered in DirectX. The " & _
+                """in game"" mirrored walls will be shaded appropriately."
         End Select
     End Sub
 

@@ -316,6 +316,12 @@ Public Class TileManager
                     strIDField = "FloorID"
                     strAutoNumField = "Floor_Id"
                     strImageKey = "floor.gif"
+                Case "Walls"
+                    ' If it was a new wall
+                    strTableName = "Wall"
+                    strIDField = "WallID"
+                    strAutoNumField = "Wall_Id"
+                    strImageKey = "wall.gif"
             End Select
             Dim dr As DataRow = dsTiles.Tables(strTableName).NewRow()
             dr.Item(strIDField) = dsTiles.Tables(strTableName).Compute("Max(" & strIDField & ")", "") + 1
