@@ -32,20 +32,17 @@ Partial Class ctlWall
         Me.Label13 = New System.Windows.Forms.Label
         Me.btnNotes = New System.Windows.Forms.Button
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
-        Me.TextBox1 = New System.Windows.Forms.TextBox
-        Me.TextBox2 = New System.Windows.Forms.TextBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.tbxTopLeftL = New System.Windows.Forms.TextBox
-        Me.Label10 = New System.Windows.Forms.Label
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.btnSelectSideR = New System.Windows.Forms.Button
-        Me.Label9 = New System.Windows.Forms.Label
+        Me.nudDepth = New System.Windows.Forms.NumericUpDown
+        Me.cbxDepth = New System.Windows.Forms.CheckBox
+        Me.tbxWallTopLocation = New System.Windows.Forms.TextBox
+        Me.lblWallTopLocation = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
-        Me.btnSelectSideL = New System.Windows.Forms.Button
-        Me.Label8 = New System.Windows.Forms.Label
-        Me.tbxDimensionL = New System.Windows.Forms.TextBox
-        Me.Label11 = New System.Windows.Forms.Label
-        Me.Label12 = New System.Windows.Forms.Label
+        Me.btnWallTopDepth = New System.Windows.Forms.Button
+        Me.lblWallTopDepth = New System.Windows.Forms.Label
+        Me.tbxWallTopDimension = New System.Windows.Forms.TextBox
+        Me.lblWallTopDimension = New System.Windows.Forms.Label
+        Me.lblDepth = New System.Windows.Forms.Label
+        Me.cbxMirrored = New System.Windows.Forms.CheckBox
         Me.ddlGroup = New System.Windows.Forms.ComboBox
         Me.Label7 = New System.Windows.Forms.Label
         Me.tbxTileType = New System.Windows.Forms.TextBox
@@ -61,48 +58,32 @@ Partial Class ctlWall
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel
         Me.tbxWallRightDimension = New System.Windows.Forms.TextBox
         Me.tbxWallRightLocation = New System.Windows.Forms.TextBox
-        Me.Label1 = New System.Windows.Forms.Label
+        Me.lblWallRightLocation = New System.Windows.Forms.Label
         Me.tbxWallLeftLocation = New System.Windows.Forms.TextBox
         Me.Label3 = New System.Windows.Forms.Label
         Me.Panel3 = New System.Windows.Forms.Panel
-        Me.SelectWallRight = New System.Windows.Forms.Button
-        Me.Label4 = New System.Windows.Forms.Label
+        Me.btnDeleteWallRight = New System.Windows.Forms.Button
+        Me.btnSelectWallRight = New System.Windows.Forms.Button
+        Me.lblWallRight = New System.Windows.Forms.Label
         Me.Panel4 = New System.Windows.Forms.Panel
+        Me.btnDeleteWallLeft = New System.Windows.Forms.Button
         Me.btnSelectWallLeft = New System.Windows.Forms.Button
         Me.Label17 = New System.Windows.Forms.Label
         Me.tbxWallLeftDimension = New System.Windows.Forms.TextBox
         Me.Label18 = New System.Windows.Forms.Label
-        Me.Label19 = New System.Windows.Forms.Label
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel
-        Me.TextBox7 = New System.Windows.Forms.TextBox
-        Me.TextBox8 = New System.Windows.Forms.TextBox
-        Me.Label20 = New System.Windows.Forms.Label
-        Me.TextBox9 = New System.Windows.Forms.TextBox
-        Me.Label21 = New System.Windows.Forms.Label
-        Me.Panel5 = New System.Windows.Forms.Panel
-        Me.btnSelectTopR = New System.Windows.Forms.Button
-        Me.Label22 = New System.Windows.Forms.Label
-        Me.Panel6 = New System.Windows.Forms.Panel
-        Me.btnSelectTopL = New System.Windows.Forms.Button
-        Me.Label23 = New System.Windows.Forms.Label
-        Me.TextBox10 = New System.Windows.Forms.TextBox
-        Me.Label24 = New System.Windows.Forms.Label
-        Me.Label25 = New System.Windows.Forms.Label
+        Me.lblWallRightDimension = New System.Windows.Forms.Label
         Me.tbxWallLength = New System.Windows.Forms.TextBox
         Me.Label26 = New System.Windows.Forms.Label
         CType(Me.dtgObstacles, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        CType(Me.nudDepth, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.pnlPreview.SuspendLayout()
         CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'dtgObstacles
@@ -225,16 +206,15 @@ Partial Class ctlWall
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.TextBox1, 3, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.TextBox2, 3, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 2, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.tbxTopLeftL, 1, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label10, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Panel2, 2, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.nudDepth, 3, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.cbxDepth, 2, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.tbxWallTopLocation, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.lblWallTopLocation, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Panel1, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.tbxDimensionL, 1, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label11, 0, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label12, 2, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.tbxWallTopDimension, 1, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.lblWallTopDimension, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.lblDepth, 2, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.cbxMirrored, 2, 0)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(12, 258)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 3
@@ -244,163 +224,134 @@ Partial Class ctlWall
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(496, 80)
         Me.TableLayoutPanel2.TabIndex = 79
         '
-        'TextBox1
+        'nudDepth
         '
-        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.nudDepth.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nudDepth.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nudDepth.Location = New System.Drawing.Point(351, 54)
+        Me.nudDepth.Maximum = New Decimal(New Integer() {32, 0, 0, 0})
+        Me.nudDepth.Name = "nudDepth"
+        Me.nudDepth.Size = New System.Drawing.Size(142, 22)
+        Me.nudDepth.TabIndex = 87
+        Me.nudDepth.Value = New Decimal(New Integer() {9, 0, 0, 0})
+        '
+        'cbxDepth
+        '
+        Me.cbxDepth.AutoSize = True
+        Me.cbxDepth.Checked = True
+        Me.cbxDepth.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.TableLayoutPanel2.SetColumnSpan(Me.cbxDepth, 2)
+        Me.cbxDepth.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxDepth.Location = New System.Drawing.Point(251, 28)
+        Me.cbxDepth.Name = "cbxDepth"
+        Me.cbxDepth.Size = New System.Drawing.Size(136, 18)
+        Me.cbxDepth.TabIndex = 68
+        Me.cbxDepth.Text = "Walls have depth"
+        Me.cbxDepth.UseVisualStyleBackColor = True
+        '
+        'tbxWallTopLocation
+        '
+        Me.tbxWallTopLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(351, 53)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(142, 22)
-        Me.TextBox1.TabIndex = 66
+        Me.tbxWallTopLocation.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxWallTopLocation.Location = New System.Drawing.Point(103, 28)
+        Me.tbxWallTopLocation.Name = "tbxWallTopLocation"
+        Me.tbxWallTopLocation.ReadOnly = True
+        Me.tbxWallTopLocation.Size = New System.Drawing.Size(142, 22)
+        Me.tbxWallTopLocation.TabIndex = 60
         '
-        'TextBox2
+        'lblWallTopLocation
         '
-        Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox2.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(351, 28)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(142, 22)
-        Me.TextBox2.TabIndex = 65
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(251, 30)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(59, 14)
-        Me.Label2.TabIndex = 64
-        Me.Label2.Text = "Top left:"
-        '
-        'tbxTopLeftL
-        '
-        Me.tbxTopLeftL.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbxTopLeftL.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxTopLeftL.Location = New System.Drawing.Point(103, 28)
-        Me.tbxTopLeftL.Name = "tbxTopLeftL"
-        Me.tbxTopLeftL.ReadOnly = True
-        Me.tbxTopLeftL.Size = New System.Drawing.Size(142, 22)
-        Me.tbxTopLeftL.TabIndex = 60
-        '
-        'Label10
-        '
-        Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(3, 30)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(59, 14)
-        Me.Label10.TabIndex = 59
-        Me.Label10.Text = "Top left:"
-        '
-        'Panel2
-        '
-        Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel2.SetColumnSpan(Me.Panel2, 2)
-        Me.Panel2.Controls.Add(Me.btnSelectSideR)
-        Me.Panel2.Controls.Add(Me.Label9)
-        Me.Panel2.Location = New System.Drawing.Point(248, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(248, 25)
-        Me.Panel2.TabIndex = 51
-        '
-        'btnSelectSideR
-        '
-        Me.btnSelectSideR.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSelectSideR.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSelectSideR.Location = New System.Drawing.Point(170, 4)
-        Me.btnSelectSideR.Name = "btnSelectSideR"
-        Me.btnSelectSideR.Size = New System.Drawing.Size(75, 19)
-        Me.btnSelectSideR.TabIndex = 51
-        Me.btnSelectSideR.Text = "Select image"
-        Me.btnSelectSideR.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(3, 5)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(146, 14)
-        Me.Label9.TabIndex = 49
-        Me.Label9.Text = "Side wall depth - right"
+        Me.lblWallTopLocation.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblWallTopLocation.AutoSize = True
+        Me.lblWallTopLocation.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWallTopLocation.Location = New System.Drawing.Point(3, 30)
+        Me.lblWallTopLocation.Name = "lblWallTopLocation"
+        Me.lblWallTopLocation.Size = New System.Drawing.Size(59, 14)
+        Me.lblWallTopLocation.TabIndex = 59
+        Me.lblWallTopLocation.Text = "Top left:"
         '
         'Panel1
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TableLayoutPanel2.SetColumnSpan(Me.Panel1, 2)
-        Me.Panel1.Controls.Add(Me.btnSelectSideL)
-        Me.Panel1.Controls.Add(Me.Label8)
+        Me.Panel1.Controls.Add(Me.btnWallTopDepth)
+        Me.Panel1.Controls.Add(Me.lblWallTopDepth)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(248, 25)
         Me.Panel1.TabIndex = 50
         '
-        'btnSelectSideL
+        'btnWallTopDepth
         '
-        Me.btnSelectSideL.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSelectSideL.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSelectSideL.Location = New System.Drawing.Point(170, 4)
-        Me.btnSelectSideL.Name = "btnSelectSideL"
-        Me.btnSelectSideL.Size = New System.Drawing.Size(75, 19)
-        Me.btnSelectSideL.TabIndex = 50
-        Me.btnSelectSideL.Text = "Select image"
-        Me.btnSelectSideL.UseVisualStyleBackColor = True
+        Me.btnWallTopDepth.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnWallTopDepth.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWallTopDepth.Location = New System.Drawing.Point(170, 4)
+        Me.btnWallTopDepth.Name = "btnWallTopDepth"
+        Me.btnWallTopDepth.Size = New System.Drawing.Size(75, 19)
+        Me.btnWallTopDepth.TabIndex = 50
+        Me.btnWallTopDepth.Text = "Select image"
+        Me.btnWallTopDepth.UseVisualStyleBackColor = True
         '
-        'Label8
+        'lblWallTopDepth
         '
-        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(3, 5)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(137, 14)
-        Me.Label8.TabIndex = 49
-        Me.Label8.Text = "Side wall depth - left"
+        Me.lblWallTopDepth.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblWallTopDepth.AutoSize = True
+        Me.lblWallTopDepth.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWallTopDepth.Location = New System.Drawing.Point(3, 5)
+        Me.lblWallTopDepth.Name = "lblWallTopDepth"
+        Me.lblWallTopDepth.Size = New System.Drawing.Size(100, 14)
+        Me.lblWallTopDepth.TabIndex = 49
+        Me.lblWallTopDepth.Text = "Wall top depth"
         '
-        'tbxDimensionL
+        'tbxWallTopDimension
         '
-        Me.tbxDimensionL.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.tbxWallTopDimension.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbxDimensionL.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxDimensionL.Location = New System.Drawing.Point(103, 53)
-        Me.tbxDimensionL.Name = "tbxDimensionL"
-        Me.tbxDimensionL.ReadOnly = True
-        Me.tbxDimensionL.Size = New System.Drawing.Size(142, 22)
-        Me.tbxDimensionL.TabIndex = 61
+        Me.tbxWallTopDimension.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxWallTopDimension.Location = New System.Drawing.Point(103, 53)
+        Me.tbxWallTopDimension.Name = "tbxWallTopDimension"
+        Me.tbxWallTopDimension.ReadOnly = True
+        Me.tbxWallTopDimension.Size = New System.Drawing.Size(142, 22)
+        Me.tbxWallTopDimension.TabIndex = 61
         '
-        'Label11
+        'lblWallTopDimension
         '
-        Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(3, 58)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(77, 14)
-        Me.Label11.TabIndex = 62
-        Me.Label11.Text = "Dimension:"
+        Me.lblWallTopDimension.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblWallTopDimension.AutoSize = True
+        Me.lblWallTopDimension.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWallTopDimension.Location = New System.Drawing.Point(3, 58)
+        Me.lblWallTopDimension.Name = "lblWallTopDimension"
+        Me.lblWallTopDimension.Size = New System.Drawing.Size(77, 14)
+        Me.lblWallTopDimension.TabIndex = 62
+        Me.lblWallTopDimension.Text = "Dimension:"
         '
-        'Label12
+        'lblDepth
         '
-        Me.Label12.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(251, 58)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(77, 14)
-        Me.Label12.TabIndex = 63
-        Me.Label12.Text = "Dimension:"
+        Me.lblDepth.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblDepth.AutoSize = True
+        Me.lblDepth.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDepth.Location = New System.Drawing.Point(251, 58)
+        Me.lblDepth.Name = "lblDepth"
+        Me.lblDepth.Size = New System.Drawing.Size(79, 14)
+        Me.lblDepth.TabIndex = 63
+        Me.lblDepth.Text = "Depth (px):"
+        '
+        'cbxMirrored
+        '
+        Me.cbxMirrored.AutoSize = True
+        Me.cbxMirrored.Checked = True
+        Me.cbxMirrored.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.TableLayoutPanel2.SetColumnSpan(Me.cbxMirrored, 2)
+        Me.cbxMirrored.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxMirrored.Location = New System.Drawing.Point(251, 3)
+        Me.cbxMirrored.Name = "cbxMirrored"
+        Me.cbxMirrored.Size = New System.Drawing.Size(159, 18)
+        Me.cbxMirrored.TabIndex = 67
+        Me.cbxMirrored.Text = "Right wall mirrors left"
+        Me.cbxMirrored.UseVisualStyleBackColor = True
         '
         'ddlGroup
         '
@@ -544,14 +495,14 @@ Partial Class ctlWall
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.tbxWallRightDimension, 3, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.tbxWallRightLocation, 3, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label1, 2, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.lblWallRightLocation, 2, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.tbxWallLeftLocation, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label3, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Panel3, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Panel4, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.tbxWallLeftDimension, 1, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.Label18, 0, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label19, 2, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.lblWallRightDimension, 2, 2)
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(12, 177)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 3
@@ -583,16 +534,16 @@ Partial Class ctlWall
         Me.tbxWallRightLocation.Size = New System.Drawing.Size(142, 22)
         Me.tbxWallRightLocation.TabIndex = 65
         '
-        'Label1
+        'lblWallRightLocation
         '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(251, 30)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(59, 14)
-        Me.Label1.TabIndex = 64
-        Me.Label1.Text = "Top left:"
+        Me.lblWallRightLocation.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblWallRightLocation.AutoSize = True
+        Me.lblWallRightLocation.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWallRightLocation.Location = New System.Drawing.Point(251, 30)
+        Me.lblWallRightLocation.Name = "lblWallRightLocation"
+        Me.lblWallRightLocation.Size = New System.Drawing.Size(59, 14)
+        Me.lblWallRightLocation.TabIndex = 64
+        Me.lblWallRightLocation.Text = "Top left:"
         '
         'tbxWallLeftLocation
         '
@@ -621,41 +572,54 @@ Partial Class ctlWall
         Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TableLayoutPanel3.SetColumnSpan(Me.Panel3, 2)
-        Me.Panel3.Controls.Add(Me.SelectWallRight)
-        Me.Panel3.Controls.Add(Me.Label4)
+        Me.Panel3.Controls.Add(Me.btnDeleteWallRight)
+        Me.Panel3.Controls.Add(Me.btnSelectWallRight)
+        Me.Panel3.Controls.Add(Me.lblWallRight)
         Me.Panel3.Location = New System.Drawing.Point(248, 0)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(248, 25)
         Me.Panel3.TabIndex = 51
         '
-        'SelectWallRight
+        'btnDeleteWallRight
         '
-        Me.SelectWallRight.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SelectWallRight.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SelectWallRight.Location = New System.Drawing.Point(170, 4)
-        Me.SelectWallRight.Name = "SelectWallRight"
-        Me.SelectWallRight.Size = New System.Drawing.Size(75, 19)
-        Me.SelectWallRight.TabIndex = 51
-        Me.SelectWallRight.Text = "Select image"
-        Me.SelectWallRight.UseVisualStyleBackColor = True
+        Me.btnDeleteWallRight.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnDeleteWallRight.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteWallRight.Image = Global.BattleEdit.My.Resources.Resources._cross
+        Me.btnDeleteWallRight.Location = New System.Drawing.Point(226, 4)
+        Me.btnDeleteWallRight.Name = "btnDeleteWallRight"
+        Me.btnDeleteWallRight.Size = New System.Drawing.Size(19, 19)
+        Me.btnDeleteWallRight.TabIndex = 52
+        Me.btnDeleteWallRight.UseVisualStyleBackColor = True
         '
-        'Label4
+        'btnSelectWallRight
         '
-        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 5)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(76, 14)
-        Me.Label4.TabIndex = 49
-        Me.Label4.Text = "Wall - right"
+        Me.btnSelectWallRight.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSelectWallRight.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSelectWallRight.Location = New System.Drawing.Point(150, 4)
+        Me.btnSelectWallRight.Name = "btnSelectWallRight"
+        Me.btnSelectWallRight.Size = New System.Drawing.Size(75, 19)
+        Me.btnSelectWallRight.TabIndex = 51
+        Me.btnSelectWallRight.Text = "Select image"
+        Me.btnSelectWallRight.UseVisualStyleBackColor = True
+        '
+        'lblWallRight
+        '
+        Me.lblWallRight.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblWallRight.AutoSize = True
+        Me.lblWallRight.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWallRight.Location = New System.Drawing.Point(3, 5)
+        Me.lblWallRight.Name = "lblWallRight"
+        Me.lblWallRight.Size = New System.Drawing.Size(76, 14)
+        Me.lblWallRight.TabIndex = 49
+        Me.lblWallRight.Text = "Wall - right"
         '
         'Panel4
         '
         Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TableLayoutPanel3.SetColumnSpan(Me.Panel4, 2)
+        Me.Panel4.Controls.Add(Me.btnDeleteWallLeft)
         Me.Panel4.Controls.Add(Me.btnSelectWallLeft)
         Me.Panel4.Controls.Add(Me.Label17)
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
@@ -664,11 +628,22 @@ Partial Class ctlWall
         Me.Panel4.Size = New System.Drawing.Size(248, 25)
         Me.Panel4.TabIndex = 50
         '
+        'btnDeleteWallLeft
+        '
+        Me.btnDeleteWallLeft.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnDeleteWallLeft.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteWallLeft.Image = Global.BattleEdit.My.Resources.Resources._cross
+        Me.btnDeleteWallLeft.Location = New System.Drawing.Point(226, 4)
+        Me.btnDeleteWallLeft.Name = "btnDeleteWallLeft"
+        Me.btnDeleteWallLeft.Size = New System.Drawing.Size(19, 19)
+        Me.btnDeleteWallLeft.TabIndex = 51
+        Me.btnDeleteWallLeft.UseVisualStyleBackColor = True
+        '
         'btnSelectWallLeft
         '
         Me.btnSelectWallLeft.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSelectWallLeft.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSelectWallLeft.Location = New System.Drawing.Point(170, 4)
+        Me.btnSelectWallLeft.Location = New System.Drawing.Point(150, 4)
         Me.btnSelectWallLeft.Name = "btnSelectWallLeft"
         Me.btnSelectWallLeft.Size = New System.Drawing.Size(75, 19)
         Me.btnSelectWallLeft.TabIndex = 50
@@ -708,202 +683,16 @@ Partial Class ctlWall
         Me.Label18.TabIndex = 62
         Me.Label18.Text = "Dimension:"
         '
-        'Label19
+        'lblWallRightDimension
         '
-        Me.Label19.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(251, 58)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(77, 14)
-        Me.Label19.TabIndex = 63
-        Me.Label19.Text = "Dimension:"
-        '
-        'TableLayoutPanel4
-        '
-        Me.TableLayoutPanel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel4.ColumnCount = 4
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.TextBox7, 3, 2)
-        Me.TableLayoutPanel4.Controls.Add(Me.TextBox8, 3, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label20, 2, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.TextBox9, 1, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label21, 0, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.Panel5, 2, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Panel6, 0, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.TextBox10, 1, 2)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label24, 0, 2)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label25, 2, 2)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(12, 339)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 3
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(496, 80)
-        Me.TableLayoutPanel4.TabIndex = 84
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox7.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(351, 53)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.ReadOnly = True
-        Me.TextBox7.Size = New System.Drawing.Size(142, 22)
-        Me.TextBox7.TabIndex = 66
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox8.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(351, 28)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.ReadOnly = True
-        Me.TextBox8.Size = New System.Drawing.Size(142, 22)
-        Me.TextBox8.TabIndex = 65
-        '
-        'Label20
-        '
-        Me.Label20.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(251, 30)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(59, 14)
-        Me.Label20.TabIndex = 64
-        Me.Label20.Text = "Top left:"
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox9.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(103, 28)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.ReadOnly = True
-        Me.TextBox9.Size = New System.Drawing.Size(142, 22)
-        Me.TextBox9.TabIndex = 60
-        '
-        'Label21
-        '
-        Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(3, 30)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(59, 14)
-        Me.Label21.TabIndex = 59
-        Me.Label21.Text = "Top left:"
-        '
-        'Panel5
-        '
-        Me.Panel5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel4.SetColumnSpan(Me.Panel5, 2)
-        Me.Panel5.Controls.Add(Me.btnSelectTopR)
-        Me.Panel5.Controls.Add(Me.Label22)
-        Me.Panel5.Location = New System.Drawing.Point(248, 0)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(248, 25)
-        Me.Panel5.TabIndex = 51
-        '
-        'btnSelectTopR
-        '
-        Me.btnSelectTopR.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSelectTopR.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSelectTopR.Location = New System.Drawing.Point(170, 4)
-        Me.btnSelectTopR.Name = "btnSelectTopR"
-        Me.btnSelectTopR.Size = New System.Drawing.Size(75, 19)
-        Me.btnSelectTopR.TabIndex = 51
-        Me.btnSelectTopR.Text = "Select image"
-        Me.btnSelectTopR.UseVisualStyleBackColor = True
-        '
-        'Label22
-        '
-        Me.Label22.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(3, 5)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(142, 14)
-        Me.Label22.TabIndex = 49
-        Me.Label22.Text = "Top wall depth - right"
-        '
-        'Panel6
-        '
-        Me.Panel6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel4.SetColumnSpan(Me.Panel6, 2)
-        Me.Panel6.Controls.Add(Me.btnSelectTopL)
-        Me.Panel6.Controls.Add(Me.Label23)
-        Me.Panel6.Location = New System.Drawing.Point(0, 0)
-        Me.Panel6.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(248, 25)
-        Me.Panel6.TabIndex = 50
-        '
-        'btnSelectTopL
-        '
-        Me.btnSelectTopL.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSelectTopL.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSelectTopL.Location = New System.Drawing.Point(170, 4)
-        Me.btnSelectTopL.Name = "btnSelectTopL"
-        Me.btnSelectTopL.Size = New System.Drawing.Size(75, 19)
-        Me.btnSelectTopL.TabIndex = 50
-        Me.btnSelectTopL.Text = "Select image"
-        Me.btnSelectTopL.UseVisualStyleBackColor = True
-        '
-        'Label23
-        '
-        Me.Label23.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(3, 5)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(133, 14)
-        Me.Label23.TabIndex = 49
-        Me.Label23.Text = "Top wall depth - left"
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox10.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox10.Location = New System.Drawing.Point(103, 53)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.ReadOnly = True
-        Me.TextBox10.Size = New System.Drawing.Size(142, 22)
-        Me.TextBox10.TabIndex = 61
-        '
-        'Label24
-        '
-        Me.Label24.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(3, 58)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(77, 14)
-        Me.Label24.TabIndex = 62
-        Me.Label24.Text = "Dimension:"
-        '
-        'Label25
-        '
-        Me.Label25.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(251, 58)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(77, 14)
-        Me.Label25.TabIndex = 63
-        Me.Label25.Text = "Dimension:"
+        Me.lblWallRightDimension.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblWallRightDimension.AutoSize = True
+        Me.lblWallRightDimension.Font = New System.Drawing.Font("Verdana", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWallRightDimension.Location = New System.Drawing.Point(251, 58)
+        Me.lblWallRightDimension.Name = "lblWallRightDimension"
+        Me.lblWallRightDimension.Size = New System.Drawing.Size(77, 14)
+        Me.lblWallRightDimension.TabIndex = 63
+        Me.lblWallRightDimension.Text = "Dimension:"
         '
         'tbxWallLength
         '
@@ -932,7 +721,6 @@ Partial Class ctlWall
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.tbxWallLength)
-        Me.Controls.Add(Me.TableLayoutPanel4)
         Me.Controls.Add(Me.TableLayoutPanel3)
         Me.Controls.Add(Me.btnNotes)
         Me.Controls.Add(Me.TableLayoutPanel2)
@@ -954,8 +742,7 @@ Partial Class ctlWall
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        CType(Me.nudDepth, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.pnlPreview.ResumeLayout(False)
@@ -966,12 +753,6 @@ Partial Class ctlWall
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel4.PerformLayout()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -986,20 +767,13 @@ Partial Class ctlWall
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents btnNotes As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents tbxTopLeftL As System.Windows.Forms.TextBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents btnSelectSideR As System.Windows.Forms.Button
-    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents tbxWallTopLocation As System.Windows.Forms.TextBox
+    Friend WithEvents lblWallTopLocation As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents btnSelectSideL As System.Windows.Forms.Button
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents tbxDimensionL As System.Windows.Forms.TextBox
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents btnWallTopDepth As System.Windows.Forms.Button
+    Friend WithEvents lblWallTopDepth As System.Windows.Forms.Label
+    Friend WithEvents tbxWallTopDimension As System.Windows.Forms.TextBox
+    Friend WithEvents lblWallTopDimension As System.Windows.Forms.Label
     Friend WithEvents ddlGroup As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents tbxTileType As System.Windows.Forms.TextBox
@@ -1015,34 +789,25 @@ Partial Class ctlWall
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents tbxWallRightDimension As System.Windows.Forms.TextBox
     Friend WithEvents tbxWallRightLocation As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblWallRightLocation As System.Windows.Forms.Label
     Friend WithEvents tbxWallLeftLocation As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents SelectWallRight As System.Windows.Forms.Button
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents btnSelectWallRight As System.Windows.Forms.Button
+    Friend WithEvents lblWallRight As System.Windows.Forms.Label
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents btnSelectWallLeft As System.Windows.Forms.Button
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents tbxWallLeftDimension As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
-    Friend WithEvents Label20 As System.Windows.Forms.Label
-    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
-    Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents Panel5 As System.Windows.Forms.Panel
-    Friend WithEvents btnSelectTopR As System.Windows.Forms.Button
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents Panel6 As System.Windows.Forms.Panel
-    Friend WithEvents btnSelectTopL As System.Windows.Forms.Button
-    Friend WithEvents Label23 As System.Windows.Forms.Label
-    Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
-    Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents lblWallRightDimension As System.Windows.Forms.Label
     Friend WithEvents tbxWallLength As System.Windows.Forms.TextBox
     Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents cbxMirrored As System.Windows.Forms.CheckBox
+    Friend WithEvents lblDepth As System.Windows.Forms.Label
+    Friend WithEvents cbxDepth As System.Windows.Forms.CheckBox
+    Friend WithEvents nudDepth As System.Windows.Forms.NumericUpDown
+    Friend WithEvents btnDeleteWallLeft As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteWallRight As System.Windows.Forms.Button
 
 End Class
