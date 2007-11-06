@@ -4,8 +4,8 @@ Public Class ctlFloor
     Dim tileSize As Size = Nothing
     Dim depthSizeL As Size = Nothing
     Dim depthPositionL As Point = Nothing
-    Dim depthSizeR As Size = Nothing
-    Dim depthPositionR As Point = Nothing
+    'Dim depthSizeR As Size = Nothing
+    'Dim depthPositionR As Point = Nothing
     Dim tileFile As String = ""
     Dim currentImage As Bitmap
     Dim obstacles As New ArrayList
@@ -29,8 +29,8 @@ Public Class ctlFloor
         flrRow.Item("Dimension") = tileSize
         flrRow.Item("TopLeftDepthL") = depthPositionL
         flrRow.Item("DimensionDepthL") = depthSizeL
-        flrRow.Item("TopLeftDepthR") = depthPositionR
-        flrRow.Item("DimensionDepthR") = depthSizeR
+        'flrRow.Item("TopLeftDepthR") = depthPositionR
+        'flrRow.Item("DimensionDepthR") = depthSizeR
         flrRow.Item("ImageFile") = tileFile.Replace(My.Application.Info.DirectoryPath & "\", "")
         flrRow.Item("Group_Id") = ddlGroup.SelectedValue
         ' Now save the obstacles
@@ -96,11 +96,18 @@ Public Class ctlFloor
             g.DrawImage(bm, New Rectangle(startPos.X, startPos.Y, tileSize.Width, tileSize.Height), New Rectangle(tilePosition.X, tilePosition.Y, tileSize.Width, tileSize.Height), GraphicsUnit.Pixel)
             If Not depthSizeL = Nothing Then
                 ' If a left depth image has been specified
-                g.DrawImage(bm, New Rectangle(startPos.X, startPos.Y + tileSize.Height / 2, depthSizeL.Width, depthSizeL.Height), New Rectangle(depthPositionL.X, depthPositionL.Y, depthSizeL.Width, depthSizeL.Height), GraphicsUnit.Pixel)
+                Dim tileLength As Integer = tileSize.Width / 64
+                For i As Integer = 0 To tileLength - 1
+                    g.DrawImage(bm, New Rectangle(startPos.X + (i * 32), startPos.Y + tileSize.Height / 2 + (i * 16), depthSizeL.Width, depthSizeL.Height), New Rectangle(depthPositionL.X, depthPositionL.Y, depthSizeL.Width, depthSizeL.Height), GraphicsUnit.Pixel)
+                Next i
             End If
-            If Not depthSizeR = Nothing Then
-                ' If a right depth image has been specified
-                g.DrawImage(bm, New Rectangle(startPos.X + tileSize.Width / 2, startPos.Y + tileSize.Height / 2, depthSizeR.Width, depthSizeR.Height), New Rectangle(depthPositionR.X, depthPositionR.Y, depthSizeR.Width, depthSizeR.Height), GraphicsUnit.Pixel)
+            If Not depthSizeL = Nothing Then
+                ' If a left depth image has been specified
+                Dim tileLength As Integer = tileSize.Width / 64
+                Dim darkenedBM As Bitmap = MyGraphics.MultiplyChannels(bm, 0.6, New Rectangle(depthPositionL.X, depthPositionL.Y, depthSizeL.Width, depthSizeL.Height))
+                For i As Integer = 0 To tileLength - 1
+                    g.DrawImage(darkenedBM, New Rectangle(startPos.X + tileSize.Width / 2 + (i * 32), startPos.Y + tileSize.Height - (depthSizeL.Height / 2) - (i * 16), depthSizeL.Width, depthSizeL.Height), New Rectangle(darkenedBM.Width, 0, -darkenedBM.Width, darkenedBM.Height), GraphicsUnit.Pixel)
+                Next i
             End If
         End If
     End Sub
@@ -168,7 +175,7 @@ Public Class ctlFloor
             ' They must first select the main tile before selecting the depth pieces
             Dim frmSS As New SelectSprite()
             frmSS.ImageFile = tileFile
-            frmSS.SizeConstraint = New Size(tileSize.Width / 2, Math.Ceiling(tileSize.Height / 32 / 2) * 32)
+            frmSS.SizeConstraint = New Size(32, 32) 'New Size(tileSize.Width / 2, Math.Ceiling(tileSize.Height / 32 / 2) * 32)
             If frmSS.ShowDialog(Me) = DialogResult.OK Then
                 depthPositionL = frmSS.TileStart
                 depthSizeL = frmSS.TileSize
@@ -180,32 +187,26 @@ Public Class ctlFloor
         End If
     End Sub
 
-    Private Sub btnSelectImageR_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSelectImageR.Click
-        If Not tileSize = Nothing Then
-            ' They must first select the main tile before selecting the depth pieces
-            Dim frmSS As New SelectSprite()
-            frmSS.ImageFile = tileFile
-            frmSS.SizeConstraint = New Size(tileSize.Width / 2, Math.Ceiling(tileSize.Height / 32 / 2) * 32)
-            If frmSS.ShowDialog(Me) = DialogResult.OK Then
-                depthPositionR = frmSS.TileStart
-                depthSizeR = frmSS.TileSize
-                Me.tbxTopLeftR.Text = "(" & depthPositionR.X & ", " & depthPositionR.Y & ")"
-                Me.tbxDimensionR.Text = depthSizeR.Width & " x " & depthSizeR.Height
-                Draw_Image()
-                Me.pnlPreview.Invalidate()
-            End If
-        End If
-    End Sub
+    'Private Sub btnSelectImageR_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSelectImageR.Click
+    '    If Not tileSize = Nothing Then
+    '        ' They must first select the main tile before selecting the depth pieces
+    '        Dim frmSS As New SelectSprite()
+    '        frmSS.ImageFile = tileFile
+    '        frmSS.SizeConstraint = New Size(32, 32) 'New Size(tileSize.Width / 2, Math.Ceiling(tileSize.Height / 32 / 2) * 32)
+    '        If frmSS.ShowDialog(Me) = DialogResult.OK Then
+    '            depthPositionR = frmSS.TileStart
+    '            depthSizeR = frmSS.TileSize
+    '            Me.tbxTopLeftR.Text = "(" & depthPositionR.X & ", " & depthPositionR.Y & ")"
+    '            Me.tbxDimensionR.Text = depthSizeR.Width & " x " & depthSizeR.Height
+    '            Draw_Image()
+    '            Me.pnlPreview.Invalidate()
+    '        End If
+    '    End If
+    'End Sub
 
     Private Sub pbPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pbPreview.Click
-        Save()
         Dim frmPreview As New PreviewSprite()
-        frmPreview.TileDataSet = dsTiles
-        'Dim objRow As DataRow = dsTiles.Tables("Floor").Select("Floor_Id = " & floorID)(0)
-        'Me.ddlGroup.SelectedValue = objRow.Item("Group_Id")
-        frmPreview.TileType = TileData.TileTypes.Floor
-        frmPreview.TileID = floorID
-        frmPreview.Animated = False
+        frmPreview.Image = currentImage
         frmPreview.MdiParent = Me.ParentForm.MdiParent
         frmPreview.Show()
     End Sub
@@ -263,14 +264,14 @@ Public Class ctlFloor
             Me.tbxDimensionL.Text = depthSizeL.Width & " x " & depthSizeL.Height
         End If
 
-        If Not flrRow.Item("TopLeftDepthR") Is Nothing AndAlso Not IsDBNull(flrRow.Item("TopLeftDepthR")) Then
-            depthPositionR = flrRow.Item("TopLeftDepthR")
-            Me.tbxTopLeftR.Text = "(" & depthPositionR.X & ", " & depthPositionR.Y & ")"
-        End If
-        If Not flrRow.Item("DimensionDepthR") Is Nothing AndAlso Not IsDBNull(flrRow.Item("DimensionDepthR")) Then
-            depthSizeR = flrRow.Item("DimensionDepthR")
-            Me.tbxDimensionR.Text = depthSizeR.Width & " x " & depthSizeR.Height
-        End If
+        'If Not flrRow.Item("TopLeftDepthR") Is Nothing AndAlso Not IsDBNull(flrRow.Item("TopLeftDepthR")) Then
+        '    depthPositionR = flrRow.Item("TopLeftDepthR")
+        '    Me.tbxTopLeftR.Text = "(" & depthPositionR.X & ", " & depthPositionR.Y & ")"
+        'End If
+        'If Not flrRow.Item("DimensionDepthR") Is Nothing AndAlso Not IsDBNull(flrRow.Item("DimensionDepthR")) Then
+        '    depthSizeR = flrRow.Item("DimensionDepthR")
+        '    Me.tbxDimensionR.Text = depthSizeR.Width & " x " & depthSizeR.Height
+        'End If
 
         If Not flrRow.Item("ImageFile") Is Nothing AndAlso Not IsDBNull(flrRow.Item("ImageFile")) AndAlso flrRow.Item("ImageFile") <> "" Then
             tileFile = My.Application.Info.DirectoryPath & "\" & flrRow.Item("ImageFile")

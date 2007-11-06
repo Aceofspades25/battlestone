@@ -27,7 +27,11 @@ Public Class Notes
                 " get back to me at aceofspades25@hotmail.co.uk and I will try and incorporate that. " & _
                 "It's like this at the moment, becuase I am just trying to get this finished as quickly " & _
                 "as possible, so I can get started on the level editor" & vbCrLf & vbCrLf
-                Me.tbxNotes.Text &= "For now obstacles cannot be added for floor tiles, but I will be adding this soon."
+                Me.tbxNotes.Text &= "For now obstacles cannot be added for floor tiles, but I will be " & _
+                "adding this soon." & vbCrLf & vbCrLf
+                Me.tbxNotes.Text &= "I have changed the floor tiles slightly, so that only a single depth piece " & _
+                "can be specified. The other depth piece is drawn by simply mirroring this image and darkening it " & _
+                "slightly. Also, all floor depth pieces now have to be (32x32). Enjoy."
             Case Sections.WallTiles
                 Me.lbl.Text = "Notes on wall tiles"
                 Me.tbxNotes.Text = "You cannot set obstacles for wall tiles yet, but this will be coming soon. " & _
@@ -38,11 +42,9 @@ Public Class Notes
                 "at any point where a horizontal and vertical wall join. I haven't quite figured whether I will let " & _
                 "that be set here, or even if it's really needed. I may try to generate this automatically by using the " & _
                 "existing wall depth pieces." & vbCrLf & vbCrLf
-                Me.tbxNotes.Text &= "When you choose for the right wall to mirror the left, it won't show as being lighter " & _
-                "than the left wall. This is because this editor was written in vb.net using GDI+. GDI+ Can darken and lighten " & _
-                "pixels, but the easy way to do this is slow and inefficient. Because of this, the two walls will appear to have " & _
-                "the same brightness. On the other hand, within the game itself, the walls will be rendered in DirectX. The " & _
-                """in game"" mirrored walls will be shaded appropriately."
+                Me.tbxNotes.Text &= "You can now choose for the right wall to mirror the left (optional) The right wall will" & _
+                "always be rendered slightly lighter, and this will save you having to draw half the wall tiles you would previously " & _
+                "have needed to."
         End Select
     End Sub
 

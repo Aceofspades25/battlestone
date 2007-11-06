@@ -300,12 +300,8 @@ Public Class ctlObject
     End Sub
 
     Private Sub pbPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pbPreview.Click
-        Save()
         Dim frmPreview As New PreviewSprite()
-        frmPreview.TileDataSet = dsTiles
-        Dim objRow As DataRow = dsTiles.Tables("Object").Select("Object_Id = " & objID)(0)
-        'Me.ddlGroup.SelectedValue = objRow.Item("Group_Id")
-        frmPreview.TileID = objID
+        frmPreview.Image = currentImage
         frmPreview.MdiParent = Me.ParentForm.MdiParent
         frmPreview.Show()
     End Sub

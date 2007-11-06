@@ -40,7 +40,7 @@ Public Class ctlWall
         'flrRow.Item("TopLeftDepthR") = depthPositionR
         'flrRow.Item("DimensionDepthR") = depthSizeR
         flrRow.Item("ImageFile") = tileFile.Replace(My.Application.Info.DirectoryPath & "\", "")
-        'flrRow.Item("Group_Id") = ddlGroup.SelectedValue
+        flrRow.Item("Group_Id") = ddlGroup.SelectedValue
         '' Now save the obstacles
         'Dim obsRows() As DataRow = dsTiles.Tables("Obstacle").Select("Floor_Id = " & wallID)
         '' Delete all the previous rows
@@ -54,16 +54,16 @@ Public Class ctlWall
         '    newRow.Item("Floor_Id") = wallID
         '    dsTiles.Tables("Obstacle").Rows.Add(newRow)
         'Next
-        '' Now update the TreeNode that represents this structure
-        'nodeRef.Text = Me.tbxTileName.Text
-        'If nodeRef.Parent.Parent.Name <> ddlGroup.SelectedValue Then
-        '    Dim groupNode As TreeNode = nodeRef.TreeView.Nodes(0).Nodes(ddlGroup.SelectedValue.ToString())
-        '    Dim targetNode As TreeNode = groupNode.Nodes(nodeRef.Parent.Name)
-        '    ' If the current node is the selected one, de-select it, so that the following node doesn't get selected the moment this is removed
-        '    If nodeRef.TreeView.SelectedNode Is nodeRef Then nodeRef.TreeView.SelectedNode = Nothing
-        '    nodeRef.Remove()
-        '    targetNode.Nodes.Add(nodeRef)
-        'End If
+        ' Now update the TreeNode that represents this structure
+        nodeRef.Text = Me.tbxTileName.Text
+        If nodeRef.Parent.Parent.Name <> ddlGroup.SelectedValue Then
+            Dim groupNode As TreeNode = nodeRef.TreeView.Nodes(0).Nodes(ddlGroup.SelectedValue.ToString())
+            Dim targetNode As TreeNode = groupNode.Nodes(nodeRef.Parent.Name)
+            ' If the current node is the selected one, de-select it, so that the following node doesn't get selected the moment this is removed
+            If nodeRef.TreeView.SelectedNode Is nodeRef Then nodeRef.TreeView.SelectedNode = Nothing
+            nodeRef.Remove()
+            targetNode.Nodes.Add(nodeRef)
+        End If
     End Sub
 
     Private Sub pnlPreview_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles pnlPreview.Paint
@@ -115,7 +115,9 @@ Public Class ctlWall
             ' Draw the right wall
             If wallPositionLeft <> Nothing And cbxMirrored.Checked Then
                 ' the right wall mirrors the left
-                g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width, startPos.Y, wallSize.Width, wallSize.Height), New Rectangle(wallPositionLeft.X + wallSize.Width - 1, wallPositionLeft.Y, -wallSize.Width, wallSize.Height), GraphicsUnit.Pixel)
+                'g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width, startPos.Y, wallSize.Width, wallSize.Height), New Rectangle(wallPositionLeft.X + wallSize.Width - 1, wallPositionLeft.Y, -wallSize.Width, wallSize.Height), GraphicsUnit.Pixel)
+                Dim lightenedBM As Bitmap = MyGraphics.MultiplyChannels(bm, 1.7, New Rectangle(wallPositionLeft.X, wallPositionLeft.Y, wallSize.Width, wallSize.Height))
+                g.DrawImage(lightenedBM, New Rectangle(startPos.X + wallSize.Width, startPos.Y, wallSize.Width, wallSize.Height), New Rectangle(lightenedBM.Width, 0, -lightenedBM.Width, wallSize.Height), GraphicsUnit.Pixel)
             ElseIf wallPositionRight <> Nothing Then
                 ' the right wall doesn't mirror the left, it is specified
                 g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width, startPos.Y, wallSize.Width, wallSize.Height), New Rectangle(wallPositionRight.X, wallPositionRight.Y, wallSize.Width, wallSize.Height), GraphicsUnit.Pixel)
@@ -126,8 +128,8 @@ Public Class ctlWall
                 If wallPositionLeft <> Nothing Then
                     If cbxMirrored.Checked Then
                         ' If it's a mirrored wall
-                        'Dim lightenedBM As Bitmap = MyGraphics.MultiplyChannels(bm, 0.5, New Rectangle(wallPositionLeft.X, wallPositionLeft.Y, nudDepth.Value, wallSize.Height))
-                        g.DrawImage(bm, New Rectangle(startPos.X - nudDepth.Value, startPos.Y, nudDepth.Value, wallSize.Height), New Rectangle(wallPositionLeft.X + nudDepth.Value, wallPositionLeft.Y, -nudDepth.Value, wallSize.Height), GraphicsUnit.Pixel)
+                        Dim lightenedBM As Bitmap = MyGraphics.MultiplyChannels(bm, 1.6, New Rectangle(wallPositionLeft.X, wallPositionLeft.Y, nudDepth.Value, wallSize.Height))
+                        g.DrawImage(lightenedBM, New Rectangle(startPos.X - nudDepth.Value, startPos.Y, nudDepth.Value, wallSize.Height), New Rectangle(lightenedBM.Width, 0, -lightenedBM.Width, wallSize.Height), GraphicsUnit.Pixel)
                     ElseIf wallPositionRight <> Nothing Then
                         g.DrawImage(bm, New Rectangle(startPos.X - nudDepth.Value, startPos.Y, nudDepth.Value, wallSize.Height), New Rectangle(wallPositionRight.X + wallSize.Width - nudDepth.Value, wallPositionRight.Y, nudDepth.Value, wallSize.Height), GraphicsUnit.Pixel)
                     End If
@@ -135,18 +137,18 @@ Public Class ctlWall
                 ' Draw the right wall depth
                 If (cbxMirrored.Checked Or wallPositionRight <> Nothing) And wallPositionLeft <> Nothing Then
                     g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width * 2, startPos.Y, nudDepth.Value, wallSize.Height), New Rectangle(wallPositionLeft.X, wallPositionLeft.Y, nudDepth.Value, wallSize.Height), GraphicsUnit.Pixel)
-                End If
-            End If            
-            If topDepthPosition <> Nothing Then
-                If wallPositionLeft <> Nothing Then
-                    For i As Integer = 0 To wallLength - 1
-                        g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width - 64 - (i * 32), startPos.Y - 16 + (i * 16), 64, 32), New Rectangle(topDepthPosition.X, topDepthPosition.Y, topDepthSize.Width, topDepthSize.Height), GraphicsUnit.Pixel)
-                    Next i
-                End If
-                If (cbxMirrored.Checked Or wallPositionRight <> Nothing) And wallPositionLeft <> Nothing Then
-                    For i As Integer = 0 To wallLength - 1
-                        g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width + (i * 32), startPos.Y - 16 + (i * 16), 64, 32), New Rectangle(topDepthPosition.X + topDepthSize.Width, topDepthPosition.Y, -topDepthSize.Width, topDepthSize.Height), GraphicsUnit.Pixel)
-                    Next i
+                End If                       
+                If topDepthPosition <> Nothing Then
+                    If wallPositionLeft <> Nothing Then
+                        For i As Integer = 0 To wallLength - 1
+                            g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width - 64 - (i * 32), startPos.Y - 16 + (i * 16), 64, 32), New Rectangle(topDepthPosition.X, topDepthPosition.Y, topDepthSize.Width, topDepthSize.Height), GraphicsUnit.Pixel)
+                        Next i
+                    End If
+                    If (cbxMirrored.Checked Or wallPositionRight <> Nothing) And wallPositionLeft <> Nothing Then
+                        For i As Integer = 0 To wallLength - 1
+                            g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width + (i * 32), startPos.Y - 16 + (i * 16), 64, 32), New Rectangle(topDepthPosition.X + topDepthSize.Width, topDepthPosition.Y, -topDepthSize.Width, topDepthSize.Height), GraphicsUnit.Pixel)
+                        Next i
+                    End If
                 End If
             End If
         End If
@@ -314,6 +316,34 @@ Public Class ctlWall
             Draw_Image()
             Me.pnlPreview.Invalidate()
         End If
+    End Sub
+
+    Private Sub pbPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pbPreview.Click
+        Dim frmPreview As New PreviewSprite()
+        frmPreview.Image = currentImage
+        frmPreview.MdiParent = Me.ParentForm.MdiParent
+        frmPreview.Show()
+    End Sub
+
+    Private Sub pnlPreview_Scroll(ByVal sender As Object, ByVal e As System.Windows.Forms.ScrollEventArgs) Handles pnlPreview.Scroll
+        pbPreview.Location = New Point(-pnlPreview.AutoScrollPosition.X / pnlPreview.AutoScrollMinSize.Height + 5, -pnlPreview.AutoScrollPosition.Y / pnlPreview.AutoScrollMinSize.Width + 5)
+    End Sub
+
+    Private Sub pnlPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseEnter
+        If bPreview Then
+            pbPreview.Visible = True
+            pbPreview.Image = My.Resources.Preview
+        End If
+    End Sub
+
+    Private Sub pnlPreview_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnlPreview.MouseLeave
+        If pbPreview.Visible Then
+            pbPreview.Image = Nothing
+        End If
+    End Sub
+
+    Private Sub pbPreview_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pbPreview.MouseEnter
+        pbPreview.Image = My.Resources.Preview
     End Sub
 
     Public Sub New(ByRef ds As DataSet, ByRef node As TreeNode)
