@@ -38,17 +38,13 @@
       <WallID>2</WallID>
       <TileName>Wooden wall</TileName>
       <ImageFile>Sprites\Grid2.png</ImageFile>
-      <Mirrored>false</Mirrored>
+      <Mirrored>true</Mirrored>
       <HasDepth>true</HasDepth>
       <Depth>32</Depth>
       <TopLeftLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <X>320</X>
         <Y>64</Y>
       </TopLeftLeft>
-      <TopLeftRight xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <X>416</X>
-        <Y>64</Y>
-      </TopLeftRight>
       <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <Width>96</Width>
         <Height>224</Height>
@@ -86,43 +82,6 @@
         <Width>32</Width>
         <Height>32</Height>
       </DimensionDepthL>
-      <TopLeftDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <X>32</X>
-        <Y>32</Y>
-      </TopLeftDepthR>
-      <DimensionDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>32</Width>
-        <Height>32</Height>
-      </DimensionDepthR>
-    </Floor>
-    <Floor>
-      <FloorID>2</FloorID>
-      <TileName>TestFloor 2</TileName>
-      <ImageFile>Sprites\Grid2.png</ImageFile>
-      <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <X>128</X>
-        <Y>192</Y>
-      </TopLeft>
-      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>192</Width>
-        <Height>96</Height>
-      </Dimension>
-      <TopLeftDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <X>0</X>
-        <Y>224</Y>
-      </TopLeftDepthL>
-      <DimensionDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>96</Width>
-        <Height>64</Height>
-      </DimensionDepthL>
-      <TopLeftDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <X>0</X>
-        <Y>288</Y>
-      </TopLeftDepthR>
-      <DimensionDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>96</Width>
-        <Height>64</Height>
-      </DimensionDepthR>
     </Floor>
     <Floor>
       <FloorID>3</FloorID>
@@ -138,20 +97,33 @@
       </Dimension>
       <TopLeftDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <X>0</X>
-        <Y>0</Y>
+        <Y>32</Y>
       </TopLeftDepthL>
       <DimensionDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>0</Width>
-        <Height>0</Height>
+        <Width>32</Width>
+        <Height>32</Height>
       </DimensionDepthL>
-      <TopLeftDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    </Floor>
+    <Floor>
+      <FloorID>4</FloorID>
+      <TileName>Test floor 2</TileName>
+      <ImageFile>Sprites\Grid2.png</ImageFile>
+      <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <X>128</X>
+        <Y>192</Y>
+      </TopLeft>
+      <Dimension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>192</Width>
+        <Height>96</Height>
+      </Dimension>
+      <TopLeftDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
         <X>0</X>
-        <Y>0</Y>
-      </TopLeftDepthR>
-      <DimensionDepthR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <Width>0</Width>
-        <Height>0</Height>
-      </DimensionDepthR>
+        <Y>32</Y>
+      </TopLeftDepthL>
+      <DimensionDepthL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Width>32</Width>
+        <Height>32</Height>
+      </DimensionDepthL>
     </Floor>
   </Group>
   <Group>

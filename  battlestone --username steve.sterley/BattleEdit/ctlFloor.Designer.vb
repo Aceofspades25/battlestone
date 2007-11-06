@@ -299,6 +299,7 @@ Partial Class ctlFloor
         Me.tbxDimensionR.ReadOnly = True
         Me.tbxDimensionR.Size = New System.Drawing.Size(137, 22)
         Me.tbxDimensionR.TabIndex = 66
+        Me.tbxDimensionR.Visible = False
         '
         'tbxTopLeftR
         '
@@ -310,6 +311,7 @@ Partial Class ctlFloor
         Me.tbxTopLeftR.ReadOnly = True
         Me.tbxTopLeftR.Size = New System.Drawing.Size(137, 22)
         Me.tbxTopLeftR.TabIndex = 65
+        Me.tbxTopLeftR.Visible = False
         '
         'Label13
         '
@@ -321,6 +323,7 @@ Partial Class ctlFloor
         Me.Label13.Size = New System.Drawing.Size(59, 14)
         Me.Label13.TabIndex = 64
         Me.Label13.Text = "Top left:"
+        Me.Label13.Visible = False
         '
         'tbxTopLeftL
         '
@@ -356,6 +359,7 @@ Partial Class ctlFloor
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(243, 25)
         Me.Panel2.TabIndex = 51
+        Me.Panel2.Visible = False
         '
         'btnSelectImageR
         '
@@ -446,6 +450,7 @@ Partial Class ctlFloor
         Me.Label12.Size = New System.Drawing.Size(77, 14)
         Me.Label12.TabIndex = 63
         Me.Label12.Text = "Dimension:"
+        Me.Label12.Visible = False
         '
         'Label14
         '

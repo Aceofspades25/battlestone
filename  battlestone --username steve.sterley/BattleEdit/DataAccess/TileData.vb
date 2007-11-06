@@ -26,6 +26,8 @@ Public Class TileData
                 Dim dr As DataRow = dsTileData.Tables("Object").Select("Object_Id = " & tID)(0)
                 dsTileData.Tables("Object").Rows.Remove(dr)
             Case TileTypes.Wall
+                Dim dr As DataRow = dsTileData.Tables("Wall").Select("Wall_Id = " & tID)(0)
+                dsTileData.Tables("Wall").Rows.Remove(dr)
         End Select
     End Sub
 

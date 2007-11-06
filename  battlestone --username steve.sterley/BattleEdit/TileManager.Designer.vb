@@ -30,8 +30,8 @@ Partial Class TileManager
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.lblSelectTile = New System.Windows.Forms.Label
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip
-        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel
+        Me.ToolStripImage = New System.Windows.Forms.ToolStripStatusLabel
+        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
         Me.tsbSave = New System.Windows.Forms.ToolStripButton
         Me.tsbNewGroup = New System.Windows.Forms.ToolStripButton
@@ -110,24 +110,24 @@ Partial Class TileManager
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripImage, Me.ToolStripStatusLabel})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 510)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(677, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
-        'ToolStripStatusLabel2
+        'ToolStripImage
         '
-        Me.ToolStripStatusLabel2.Image = Global.BattleEdit.My.Resources.Resources.car
-        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(16, 17)
+        Me.ToolStripImage.Image = Global.BattleEdit.My.Resources.Resources.car
+        Me.ToolStripImage.Name = "ToolStripImage"
+        Me.ToolStripImage.Size = New System.Drawing.Size(16, 17)
         '
-        'ToolStripStatusLabel1
+        'ToolStripStatusLabel
         '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(141, 17)
-        Me.ToolStripStatusLabel1.Text = "Currently editing: Barrel 1"
+        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
+        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(141, 17)
+        Me.ToolStripStatusLabel.Text = "Currently editing: Barrel 1"
         '
         'ToolStrip1
         '
@@ -224,7 +224,7 @@ Partial Class TileManager
     Friend WithEvents tsbNewTile As System.Windows.Forms.ToolStripButton
     Friend WithEvents tsbDeleteTile As System.Windows.Forms.ToolStripButton
     Friend WithEvents lblSelectTile As System.Windows.Forms.Label
-    Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel2 As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents ToolStripImage As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents tsbRenameGroup As System.Windows.Forms.ToolStripButton
 End Class

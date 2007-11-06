@@ -59,10 +59,12 @@ Public Class TileManager
         Populate_TileTree()
     End Sub
 
-    Private Sub InsertPanel()
+    Private Sub InsertPanel(ByVal n As TreeNode)
         Me.lblSelectTile.Visible = False
         Me.SplitContainer1.Panel2.Controls.Add(currentPanel)
         currentPanel.Dock = DockStyle.Fill
+        ToolStripImage.Image = ImageList1.Images(n.StateImageKey)
+        ToolStripStatusLabel.Text = "Currently editing: " & n.Text
     End Sub
 
     Private Sub DestroyCurrentPanel()
@@ -79,19 +81,19 @@ Public Class TileManager
                 Case "Floors"
                     DestroyCurrentPanel()
                     currentPanel = New ctlFloor(dsTiles, e.Node)
-                    InsertPanel()
+                    InsertPanel(e.Node)
                 Case "Walls"
                     DestroyCurrentPanel()
                     currentPanel = New ctlWall(dsTiles, e.Node)
-                    InsertPanel()
+                    InsertPanel(e.Node)
                 Case "Objects"
                     DestroyCurrentPanel()
                     currentPanel = New ctlObject(dsTiles, e.Node)
-                    InsertPanel()
+                    InsertPanel(e.Node)
                 Case "Characters"
                     DestroyCurrentPanel()
-                    currentPanel = New ctlCharacter()
-                    InsertPanel()
+                    currentPanel = New ctlCharacter()                    
+                    InsertPanel(e.Node)
                 Case Else
                     DestroyCurrentPanel()
                     Me.lblSelectTile.Visible = True
@@ -350,6 +352,7 @@ Public Class TileManager
                     Case "Floors"
                         td.Delete_Tile(TileData.TileTypes.Floor, TreeView1.SelectedNode.Name)
                     Case "Walls"
+                        td.Delete_Tile(TileData.TileTypes.Wall, TreeView1.SelectedNode.Name)
                     Case "Objects"
                         td.Delete_Tile(TileData.TileTypes.Object, TreeView1.SelectedNode.Name)
                     Case "Characters"
