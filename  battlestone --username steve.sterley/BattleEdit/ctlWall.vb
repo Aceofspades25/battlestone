@@ -138,7 +138,7 @@ Public Class ctlWall
                 If (cbxMirrored.Checked Or wallPositionRight <> Nothing) And wallPositionLeft <> Nothing Then
                     g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width * 2, startPos.Y, nudDepth.Value, wallSize.Height), New Rectangle(wallPositionLeft.X, wallPositionLeft.Y, nudDepth.Value, wallSize.Height), GraphicsUnit.Pixel)
                 End If                       
-                If topDepthPosition <> Nothing Then
+                If topDepthSize <> Nothing Then
                     If wallPositionLeft <> Nothing Then
                         For i As Integer = 0 To wallLength - 1
                             g.DrawImage(bm, New Rectangle(startPos.X + wallSize.Width - 64 - (i * 32), startPos.Y - 16 + (i * 16), 64, 32), New Rectangle(topDepthPosition.X, topDepthPosition.Y, topDepthSize.Width, topDepthSize.Height), GraphicsUnit.Pixel)
