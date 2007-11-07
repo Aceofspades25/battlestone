@@ -1,5 +1,5 @@
 Public Class SelectObstacles
-    Dim strImage As String = "c:\Grid.png"  ' The filename of the image
+    Dim strImage As String = ""  ' The filename of the image
     Dim ptStart As New Point(0, 0)
     Dim szDimensions As New Size(512, 512)
     Dim currentImage As Bitmap
