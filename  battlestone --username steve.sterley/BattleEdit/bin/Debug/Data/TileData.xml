@@ -188,6 +188,18 @@
         <Width>160</Width>
         <Height>128</Height>
       </Dimension>
+      <Obstacle>
+        <Position xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>0</X>
+          <Y>-1</Y>
+        </Position>
+      </Obstacle>
+      <Obstacle>
+        <Position xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <X>0</X>
+          <Y>-2</Y>
+        </Position>
+      </Obstacle>
       <Frames>
         <FrameNum>1</FrameNum>
         <TopLeft xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
