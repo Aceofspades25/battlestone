@@ -48,11 +48,8 @@ Partial Class TileManager
         '
         'SplitContainer1
         '
-        Me.SplitContainer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 28)
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 24)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -62,8 +59,9 @@ Partial Class TileManager
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.lblSelectTile)
-        Me.SplitContainer1.Size = New System.Drawing.Size(677, 481)
+        Me.SplitContainer1.Size = New System.Drawing.Size(677, 488)
         Me.SplitContainer1.SplitterDistance = 180
+        Me.SplitContainer1.SplitterWidth = 2
         Me.SplitContainer1.TabIndex = 0
         '
         'TreeView1
@@ -81,7 +79,7 @@ Partial Class TileManager
         TreeNode1.StateImageIndex = 0
         TreeNode1.Text = "All tile groups"
         Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
-        Me.TreeView1.Size = New System.Drawing.Size(176, 477)
+        Me.TreeView1.Size = New System.Drawing.Size(176, 484)
         Me.TreeView1.StateImageList = Me.ImageList1
         Me.TreeView1.TabIndex = 0
         '
@@ -101,7 +99,7 @@ Partial Class TileManager
         '
         Me.lblSelectTile.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblSelectTile.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSelectTile.Location = New System.Drawing.Point(124, 155)
+        Me.lblSelectTile.Location = New System.Drawing.Point(125, 133)
         Me.lblSelectTile.Name = "lblSelectTile"
         Me.lblSelectTile.Size = New System.Drawing.Size(237, 118)
         Me.lblSelectTile.TabIndex = 3
@@ -126,7 +124,7 @@ Partial Class TileManager
         'ToolStripStatusLabel
         '
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
-        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(141, 17)
+        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(131, 17)
         Me.ToolStripStatusLabel.Text = "Currently editing: Barrel 1"
         '
         'ToolStrip1
@@ -152,7 +150,7 @@ Partial Class TileManager
         Me.tsbNewGroup.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbNewGroup.Margin = New System.Windows.Forms.Padding(4, 1, 0, 2)
         Me.tsbNewGroup.Name = "tsbNewGroup"
-        Me.tsbNewGroup.Size = New System.Drawing.Size(86, 22)
+        Me.tsbNewGroup.Size = New System.Drawing.Size(79, 22)
         Me.tsbNewGroup.Text = "New group"
         Me.tsbNewGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -161,7 +159,7 @@ Partial Class TileManager
         Me.tsbRenameGroup.Image = Global.BattleEdit.My.Resources.Resources.renameGroup
         Me.tsbRenameGroup.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbRenameGroup.Name = "tsbRenameGroup"
-        Me.tsbRenameGroup.Size = New System.Drawing.Size(105, 22)
+        Me.tsbRenameGroup.Size = New System.Drawing.Size(97, 22)
         Me.tsbRenameGroup.Text = "Rename group"
         '
         'tsbDeleteGroup
@@ -170,7 +168,7 @@ Partial Class TileManager
         Me.tsbDeleteGroup.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbDeleteGroup.Margin = New System.Windows.Forms.Padding(4, 1, 0, 2)
         Me.tsbDeleteGroup.Name = "tsbDeleteGroup"
-        Me.tsbDeleteGroup.Size = New System.Drawing.Size(95, 22)
+        Me.tsbDeleteGroup.Size = New System.Drawing.Size(89, 22)
         Me.tsbDeleteGroup.Text = "Delete group"
         '
         'tsbNewTile
@@ -179,7 +177,7 @@ Partial Class TileManager
         Me.tsbNewTile.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbNewTile.Margin = New System.Windows.Forms.Padding(4, 1, 0, 2)
         Me.tsbNewTile.Name = "tsbNewTile"
-        Me.tsbNewTile.Size = New System.Drawing.Size(70, 22)
+        Me.tsbNewTile.Size = New System.Drawing.Size(65, 22)
         Me.tsbNewTile.Text = "New tile"
         '
         'tsbDeleteTile
@@ -188,7 +186,7 @@ Partial Class TileManager
         Me.tsbDeleteTile.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbDeleteTile.Margin = New System.Windows.Forms.Padding(4, 1, 0, 2)
         Me.tsbDeleteTile.Name = "tsbDeleteTile"
-        Me.tsbDeleteTile.Size = New System.Drawing.Size(79, 22)
+        Me.tsbDeleteTile.Size = New System.Drawing.Size(75, 22)
         Me.tsbDeleteTile.Text = "Delete tile"
         '
         'TileManager
