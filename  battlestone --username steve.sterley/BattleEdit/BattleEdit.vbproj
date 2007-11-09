@@ -69,23 +69,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\MyGraphics.vb" />
-    <Compile Include="ctlCharacter.Designer.vb">
+    <Compile Include="Maps\SingleMap.Designer.vb">
+      <DependentUpon>SingleMap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\SingleMap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tiles\ctlCharacter.Designer.vb">
       <DependentUpon>ctlCharacter.vb</DependentUpon>
     </Compile>
-    <Compile Include="ctlCharacter.vb">
+    <Compile Include="Tiles\ctlCharacter.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="DataAccess\TileData.vb" />
-    <Compile Include="NewTile.Designer.vb">
+    <Compile Include="Tiles\NewTile.Designer.vb">
       <DependentUpon>NewTile.vb</DependentUpon>
     </Compile>
-    <Compile Include="NewTile.vb">
+    <Compile Include="Tiles\NewTile.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Notes.Designer.vb">
+    <Compile Include="Common\Notes.Designer.vb">
       <DependentUpon>Notes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Notes.vb">
+    <Compile Include="Common\Notes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parent.Designer.vb">
@@ -94,52 +100,52 @@
     <Compile Include="Parent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ctlFloor.Designer.vb">
+    <Compile Include="Tiles\ctlFloor.Designer.vb">
       <DependentUpon>ctlFloor.vb</DependentUpon>
     </Compile>
-    <Compile Include="ctlFloor.vb">
+    <Compile Include="Tiles\ctlFloor.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctlObject.Designer.vb">
+    <Compile Include="Tiles\ctlObject.Designer.vb">
       <DependentUpon>ctlObject.vb</DependentUpon>
     </Compile>
-    <Compile Include="ctlObject.vb">
+    <Compile Include="Tiles\ctlObject.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctlWall.Designer.vb">
+    <Compile Include="Tiles\ctlWall.Designer.vb">
       <DependentUpon>ctlWall.vb</DependentUpon>
     </Compile>
-    <Compile Include="ctlWall.vb">
+    <Compile Include="Tiles\ctlWall.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PreviewSprite.Designer.vb">
+    <Compile Include="Common\PreviewSprite.Designer.vb">
       <DependentUpon>PreviewSprite.vb</DependentUpon>
     </Compile>
-    <Compile Include="PreviewSprite.vb">
+    <Compile Include="Common\PreviewSprite.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectObstacles.Designer.vb">
+    <Compile Include="Common\SelectObstacles.Designer.vb">
       <DependentUpon>SelectObstacles.vb</DependentUpon>
     </Compile>
-    <Compile Include="SelectObstacles.vb">
+    <Compile Include="Common\SelectObstacles.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SingleGroup.Designer.vb">
+    <Compile Include="Tiles\SingleGroup.Designer.vb">
       <DependentUpon>SingleGroup.vb</DependentUpon>
     </Compile>
-    <Compile Include="SingleGroup.vb">
+    <Compile Include="Tiles\SingleGroup.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TileEditor.vb">
+    <Compile Include="Tiles\TileEditor.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TileManager.Designer.vb">
+    <Compile Include="Tiles\TileManager.Designer.vb">
       <DependentUpon>TileManager.vb</DependentUpon>
     </Compile>
-    <Compile Include="TileManager.vb">
+    <Compile Include="Tiles\TileManager.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomPanel.vb">
+    <Compile Include="Tiles\CustomPanel.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -157,23 +163,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SelectSprite.Designer.vb">
-      <DependentUpon>SelectSprite.vb</DependentUpon>
+    <Compile Include="Common\SelectSprite.Designer.vb">
     </Compile>
-    <Compile Include="SelectSprite.vb">
+    <Compile Include="Common\SelectSprite.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ctlCharacter.resx">
+    <EmbeddedResource Include="Maps\SingleMap.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SingleMap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tiles\ctlCharacter.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ctlCharacter.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewTile.resx">
+    <EmbeddedResource Include="Tiles\NewTile.resx">
       <SubType>Designer</SubType>
       <DependentUpon>NewTile.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Notes.resx">
+    <EmbeddedResource Include="Common\Notes.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Notes.vb</DependentUpon>
     </EmbeddedResource>
@@ -181,31 +190,31 @@
       <SubType>Designer</SubType>
       <DependentUpon>Parent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctlFloor.resx">
+    <EmbeddedResource Include="Tiles\ctlFloor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ctlFloor.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctlObject.resx">
+    <EmbeddedResource Include="Tiles\ctlObject.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ctlObject.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctlWall.resx">
+    <EmbeddedResource Include="Tiles\ctlWall.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ctlWall.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviewSprite.resx">
+    <EmbeddedResource Include="Common\PreviewSprite.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PreviewSprite.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelectObstacles.resx">
+    <EmbeddedResource Include="Common\SelectObstacles.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SelectObstacles.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SingleGroup.resx">
+    <EmbeddedResource Include="Tiles\SingleGroup.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SingleGroup.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TileManager.resx">
+    <EmbeddedResource Include="Tiles\TileManager.resx">
       <SubType>Designer</SubType>
       <DependentUpon>TileManager.vb</DependentUpon>
     </EmbeddedResource>
@@ -215,7 +224,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelectSprite.resx">
+    <EmbeddedResource Include="Common\SelectSprite.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SelectSprite.vb</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +248,8 @@
     <Content Include="Images\global.gif" />
     <Content Include="Images\ground.gif" />
     <Content Include="Images\ground1.gif" />
+    <None Include="Images\pushOut.gif" />
+    <None Include="Images\pushIn.gif" />
     <Content Include="Images\tiles.gif" />
     <Content Include="Images\transparent.gif" />
     <Content Include="Images\Wall.gif" />

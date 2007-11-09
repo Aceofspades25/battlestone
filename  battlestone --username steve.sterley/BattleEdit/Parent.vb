@@ -1,5 +1,6 @@
 Public Class Parent
     Dim tmOpen As Boolean = False
+    Dim mbOpen As Boolean = False
 
     Private Sub Launch_TileManager()
         If Not tmOpen Then
@@ -10,6 +11,18 @@ Public Class Parent
             tmOpen = True
         Else
             MessageBox.Show("Only one instance of the tile manager is allowed open at a time.", "One instance at a time.", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+        End If
+    End Sub
+
+    Private Sub Launch_MapBrowser()
+        If Not mbOpen Then
+            Dim frmMB As New SingleMap
+            frmMB.MdiParent = Me
+            frmMB.Show()
+            AddHandler frmMB.FormClosed, AddressOf Form_Closed
+            mbOpen = True
+        Else
+            MessageBox.Show("Only one instance of the map browser is allowed open at a time.", "One instance at a time.", MessageBoxButtons.OK, MessageBoxIcon.Hand)
         End If
     End Sub
 
@@ -48,6 +61,7 @@ Public Class Parent
     Private Sub Form_Closed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs)
         Select Case sender.Name
             Case "TileManager" : tmOpen = False
+            Case "SingleMap" : mbOpen = False
         End Select
     End Sub
 
@@ -61,5 +75,9 @@ Public Class Parent
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
         Show_About()
+    End Sub
+
+    Private Sub tsbMapBrowser_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbMapBrowser.Click
+        Launch_MapBrowser()
     End Sub
 End Class
